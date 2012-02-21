@@ -5,11 +5,13 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Tue Feb 21 15:50:24 2012 guillaume boell
+** Last update Tue Feb 21 16:16:04 2012 guillaume boell
 */
 
 #ifndef	__COREWAR_H__
 #define	__COREWAR_H__
+
+#include <stdlib.h>
 
 typedef	struct		s_champ
 {
@@ -34,5 +36,6 @@ typedef	struct		s_arena
 }			t_arena;
 
 int	my_getnbr(char *s);
+void	*xmalloc(size_t size);
 
 #endif

@@ -5,13 +5,14 @@
 ## Login   <ecormi_p@epitech.net>
 ## 
 ## Started on  Mon Oct 24 16:56:40 2011 pierre ecormier
-## Last update Tue Feb 21 15:52:18 2012 guillaume boell
+## Last update Tue Feb 21 16:14:17 2012 guillaume boell
 ##
 
 NAME=	corewar
 
 SRC=	main.c			\
 	lib/my_putnbr.c		\
+	xappels.c		\
 	$(MY)
 
 OBJ=	$(SRC:.c=.o)
