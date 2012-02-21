@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Tue Feb 21 15:42:44 2012 pierre ecormier
+** Last update Tue Feb 21 15:50:24 2012 guillaume boell
 */
 
 #ifndef	__COREWAR_H__
@@ -32,5 +32,7 @@ typedef	struct		s_arena
   int			nb_process;
   char			*map;
 }			t_arena;
+
+int	my_getnbr(char *s);
 
 #endif
