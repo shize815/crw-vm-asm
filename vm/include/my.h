@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Thu Oct 13 10:47:23 2011 pierre ecormier
-** Last update Sun Feb 19 20:11:26 2012 pierre ecormier
+** Last update Tue Feb 21 15:31:34 2012 guillaume boell
 */
 
 #ifndef	__MY_H__
@@ -44,12 +44,5 @@ int	my_strcmp(char *s1, char *s2);
 char	*get_next_line(const int fd);
 char	**my_str_to_wordtab(char *str);
 int	get_word(char *str, char **dest);
-
-char	*list_to_string(t_char **begin, t_char **end, int size);
-int	get_line_length(t_char *begin);
-int	my_push_back(t_char **end, char *str, int len);
-int	push_asm_back(t_asmline **begin, t_asmline **end, t_asmline *elm);
-int	replace_asm_list(t_asmline **rmbegin, t_asmline **replace, t_asmline *elm);
-void	fill_list(int fd, t_char **begin, t_char **end);
 
 #endif

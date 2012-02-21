@@ -5,8 +5,10 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 20 16:53:47 2012 guillaume boell
-** Last update Mon Feb 20 17:14:05 2012 guillaume boell
+** Last update Tue Feb 21 15:33:00 2012 guillaume boell
 */
+#include "corewar.h"
+
 int	main(int argc, char **argv)
 {
   int		i;
@@ -16,7 +18,6 @@ int	main(int argc, char **argv)
   if (argc >= 3)
     while (argv[i])
       {
-	init_champ(champ);
 	i++;
       }
   return (0);
