@@ -5,14 +5,31 @@
 ## Login   <ecormi_p@epitech.net>
 ## 
 ## Started on  Mon Oct 24 16:56:40 2011 pierre ecormier
-## Last update Tue Feb 21 16:14:17 2012 guillaume boell
+## Last update Thu Mar  8 17:03:05 2012 pierre ecormier
 ##
 
 NAME=	corewar
 
-SRC=	main.c			\
+MY=	lib/get_next_line.c	\
+	lib/llist_utils.c	\
+	lib/my_strlen.c		\
+	lib/my_strcmp.c		\
 	lib/my_putnbr.c		\
+	lib/my_strdup.c		\
+	lib/my_str_to_wordtab.c
+
+VMDIR=	vm_funcs
+VMSRC=	$(VMDIR)/live.c		\
+	$(VMDIR)/st_ld.c	\
+	$(VMDIR)/ops.c		\
+	$(VMDIR)/zjmp.c		\
+	$(VMDIR)/sti_ldi.c	\
+	$(VMDIR)/fork.c		\
+	$(VMDIR)/aff.c
+
+SRC=	main.c			\
 	xappels.c		\
+	$(VMSRC)		\
 	$(MY)
 
 OBJ=	$(SRC:.c=.o)

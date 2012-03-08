@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Thu Oct 13 10:47:23 2011 pierre ecormier
-** Last update Tue Feb 21 15:31:34 2012 guillaume boell
+** Last update Thu Mar  8 17:08:22 2012 pierre ecormier
 */
 
 #ifndef	__MY_H__
@@ -43,6 +43,7 @@ int	my_tablen(char **tab);
 int	my_strcmp(char *s1, char *s2);
 char	*get_next_line(const int fd);
 char	**my_str_to_wordtab(char *str);
+int	my_push_back(t_char **end, char *str, int len);
 int	get_word(char *str, char **dest);
 
 #endif
