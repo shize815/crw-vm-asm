@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Tue Feb 21 15:33:22 2012 pierre ecormier
-** Last update Tue Feb 21 15:59:52 2012 pierre ecormier
+** Last update Thu Mar  8 16:59:57 2012 pierre ecormier
 */
 
 #include	"corewar.h"
@@ -25,4 +25,5 @@ void		live(t_arena *arena, t_champ *champ, char type[4], int argv[4])
       arena->nb_live++;
     }
   type = type;
+  champ = champ;
 }
