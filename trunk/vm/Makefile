@@ -5,7 +5,7 @@
 ## Login   <ecormi_p@epitech.net>
 ## 
 ## Started on  Mon Oct 24 16:56:40 2011 pierre ecormier
-## Last update Thu Mar  8 17:03:05 2012 pierre ecormier
+Last update Tue Mar 20 10:39:10 2012 clovis kyndt
 ##
 
 NAME=	corewar
