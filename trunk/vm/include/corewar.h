@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Mon Mar 19 16:34:43 2012 guillaume boell
+** Last update Tue Mar 20 11:42:47 2012 clovis kyndt
 */
 
 #ifndef	__COREWAR_H__
