@@ -5,8 +5,9 @@
 ## Login   <ecormi_p@epitech.net>
 ## 
 ## Started on  Mon Oct 24 16:56:40 2011 pierre ecormier
-Last update Tue Mar 20 10:39:10 2012 clovis kyndt
-##
+
+
+## REFAIRE HEADER
 
 NAME=	corewar
 
@@ -29,6 +30,7 @@ VMSRC=	$(VMDIR)/live.c		\
 
 SRC=	main.c			\
 	xappels.c		\
+	tri.c			\
 	$(VMSRC)		\
 	$(MY)
 

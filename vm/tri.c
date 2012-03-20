@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Tue Mar 20 13:21:22 2012 clovis kyndt
+** Last update Tue Mar 20 13:45:51 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -39,13 +39,13 @@ char            select_oct(char tb[], char c)
 
 void		print_my_arg(char *map, int *i, int arg[], char nb)
 {
-  char		n;
+  int		n;
 
   n  = 0;
   while (nb > 0 && n < 4)
     {
       *i = (*i + 1) % MEM_SIZE;
-      arg[n++] = map[*i];
+      arg[n] = map[*i];
       nb--;
     }
   arg[n] = '\0';
@@ -55,7 +55,7 @@ int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_
 {
   int		arg[4];
   char		type[4];
-  char		nb;
+  int		nb;
   int		ptr_i;
 
   ptr_i = *i + 1;
@@ -91,6 +91,7 @@ int		read_arg(t_champ *champ, t_arena *arena, void (*act_fct[16])(t_arena *arena
 	type = 0;
       cycle_d = dedi_no_tab(champ, arena, &i, type, act_fct);
     }
+  return (0);
 }
 
 
@@ -123,7 +124,7 @@ void		apply_search(t_arena *arena)
   champ = arena->champs;
   while (champ != NULL)
     {
-      read_arg(champ, arena->map, act_arg);
+      read_arg(champ, arena, act_fct);
       champ = champ->next;
     }
 }
