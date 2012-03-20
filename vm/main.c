@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 20 16:53:47 2012 guillaume boell
-** Last update Tue Mar 20 16:47:47 2012 clovis kyndt
+** Last update Tue Mar 20 18:14:36 2012 guillaume boell
 */
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -166,7 +166,7 @@ void		write_champs(char *mem, t_champ *champ, int *load_addr, int esp)
   int		max;
 
   max = 0;
-  while (champ->next)
+  while (champ)
     {
       if (load_addr[max] != -1)
 	{
@@ -197,8 +197,9 @@ void		write_memory(char *mem, t_champ *champ, int *load_addr)
       max++;
     }
   max = 0;
-  while (champ->next)
+  while (champ)
     {
+      printf("%s\n", champ->name);
       max++;
       champ = champ->next;
     }
@@ -247,7 +248,7 @@ int		main(int argc, char **argv)
   arena.cycle_to_die = CYCLE_TO_DIE;
   arena.nb_live = arena.nb_process = 0;
   arena.map = map;
-  /*aff_mem(map);*/
+  aff_mem(map);
   /*launch_game(&arena);*/
   apply_search(&arena);
   return (0);
