@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 20 16:53:47 2012 guillaume boell
-** Last update Mon Mar 19 16:53:46 2012 guillaume boell
+** Last update Tue Mar 20 14:29:47 2012 clovis kyndt
 */
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -132,6 +132,7 @@ t_champ		*gen_champs(t_champ *start, int *tab, char **argv)
       i++;
     }
   free(buf->next);
+  buf->next = NULL;
   return (first);
 }
 
@@ -233,7 +234,7 @@ int		main(int argc, char **argv)
   int		champ_id[4];
   t_champ	*start_champ;
   char		*map;
-  t_arena	*arena;
+  t_arena	arena;
 
   cycles_max = get_arg_nbr('d', argv, 0);
   rempl_tabl(load_addr, 'a', argv);
@@ -241,11 +242,12 @@ int		main(int argc, char **argv)
   map = xmalloc(MEM_SIZE);
   start_champ = gen_champs(start_champ, champ_id, argv);
   write_memory(map, start_champ, load_addr);
-  arena->champs = start_champ;
-  arena->cycle_max = cycles_max;
-  arena->cycle_to_die = CYCLE_TO_DIE;
-  arena->nb_live = arena->nb_process = 0;
-  arena->map = map;
-  aff_mem(map);
+  arena.champs = start_champ;
+  arena.cycle_max = cycles_max;
+  arena.cycle_to_die = CYCLE_TO_DIE;
+  arena.nb_live = arena.nb_process = 0;
+  arena.map = map;
+  /*aff_mem(map);*/
+  apply_search(&arena);
   return (0);
 }
