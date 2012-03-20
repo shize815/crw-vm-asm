@@ -5,8 +5,7 @@
 ## Login   <boell_g@epitech.net>
 ## 
 ## Started on  Tue Mar 20 15:37:42 2012 guillaume boell
-## Last update Tue Mar 20 15:57:39 2012 guillaume boell
-##
+
 
 NAME=	corewar
 
