@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Tue Mar 20 14:53:50 2012 clovis kyndt
+** Last update Tue Mar 20 14:56:47 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -70,7 +70,8 @@ int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_
     print_my_arg(arena->map, i, arg, 1);
   nb = (arena->map)[*i] - 1;
   puts("1.");
-  if (nb < 16)
+  printf("nb:%d\n", nb);
+  if (nb < 16 && nb > 0)
     (act_fct[nb])(arena, champ, type, arg);
   puts("2.");
   return (0);
