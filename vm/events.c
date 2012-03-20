@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Tue Mar 20 16:04:48 2012 guillaume boell
+** Last update Tue Mar 20 16:13:47 2012 guillaume boell
 */
 #include "corewar.h"
 #include "minilibx/mlx.h"
@@ -24,7 +24,7 @@ void	refresh(t_args_events *args)
   i = 0;
   while (i < MEM_SIZE)
     {
-      set_pix(args->arena->map[i] * 15, 0, 0, args->img_data + ((i % LARG) + ((i / LARG) * (LARG)) * 4));
+      set_pix(args->arena->map[i] * 15, args->arena->map[i] * 15, 0, args->img_data + ((i % LARG) + ((i / LARG) * (LARG)) * 4));
       i++;
     }
 }
