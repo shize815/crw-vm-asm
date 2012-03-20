@@ -1,13 +1,12 @@
 ##
-## Makefile for minilib_test in /home/ecormi_p//ExosPiscine/minilib_test
+## Makefile for corewar-vm in /home/boell_g/crw-vm-asm/vm
 ## 
-## Made by pierre ecormier
-## Login   <ecormi_p@epitech.net>
+## Made by guillaume boell
+## Login   <boell_g@epitech.net>
 ## 
-## Started on  Mon Oct 24 16:56:40 2011 pierre ecormier
-
-
-## REFAIRE HEADER
+## Started on  Tue Mar 20 15:37:42 2012 guillaume boell
+## Last update Tue Mar 20 15:57:39 2012 guillaume boell
+##
 
 NAME=	corewar
 
@@ -29,6 +28,9 @@ VMSRC=	$(VMDIR)/live.c		\
 	$(VMDIR)/aff.c
 
 SRC=	main.c			\
+	setpix.c		\
+	graphic.c		\
+	events.c		\
 	xappels.c		\
 	tri.c			\
 	$(VMSRC)		\
@@ -36,10 +38,12 @@ SRC=	main.c			\
 
 OBJ=	$(SRC:.c=.o)
 
-CFLAGS=	-I include/		\
-	-W -Wall -Wextra	\
-	-ansi -pedantic		\
+CFLAGS=	-I include/								\
+	-W -Wall -Wextra							\
+	-ansi -pedantic								\
 	-g
+
+LIB=	-L./minilibx/ -lmlx_x86_64-linux -L/usr/lib/X11 -lXext -lX11
 
 RM=	@rm -f
 

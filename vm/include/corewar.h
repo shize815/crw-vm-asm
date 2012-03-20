@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Tue Mar 20 13:38:16 2012 clovis kyndt
+** Last update Tue Mar 20 15:52:23 2012 guillaume boell
 */
 
 #ifndef			__COREWAR_H__
@@ -29,7 +29,8 @@
 #define			LLDI	14
 #define			LFORK	15
 #define			AFF	16
-
+#define			LARG	1000
+#define			HAUT	1000
 
 typedef	struct		s_champ
 {
@@ -55,8 +56,19 @@ typedef	struct		s_arena
   char			*map;
 }			t_arena;
 
+typedef	struct		s_args_events
+{
+  void			*id_aff;
+  void			*id_fenetre;
+  void			*img_ptr;
+  char			*img_data;
+  t_arena		*arena;
+}			t_args_events;
+
 int			my_getnbr(char *s);
 void			my_putchar(char c);
 void			*xmalloc(size_t size);
+int			gere_expose(t_args_events *args);
+int			key_hook(int keycode, t_args_events *args);
 
 #endif
