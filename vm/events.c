@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Wed Mar 21 15:15:24 2012 guillaume boell
+** Last update Wed Mar 21 15:45:35 2012 guillaume boell
 */
 #include <math.h>
 #include "corewar.h"
@@ -49,8 +49,10 @@ void	print_hero(t_args_events *args)
 {
   t_col	color;
 
-  color.r = 250;
-  do_carre(args, 12,  &args->hero_pos, &color);
+  args->hero_color.r += 1;
+  args->hero_color.g += 2;
+  args->hero_color.b += 3;
+  do_carre(args, 12,  &args->hero_pos, &args->hero_color);
 }
 
 void	refresh(t_args_events *args)
@@ -64,12 +66,14 @@ void	refresh(t_args_events *args)
   i = n = 0;
   taille = LARG / sqrt(MEM_SIZE);
   args->hero_pos.y = args->hero_pos.y + 1;
+  if (args->hero_pos.y + HERO_H >= LARG)
+    args->hero_pos.y = 0;
   while (i < MEM_SIZE)
     {
       pos.x = (n * taille) % (LARG - taille);
       pos.y = ((i * taille) / (LARG - taille)) * taille;
       color.r = color.g = color.b = args->arena->map[i] * 15;
-      if (args->arena->map[i] + 1)
+      if (args->arena->map[i])
 	do_carre(args, taille, &pos, &color);
       i++;
       n++;
@@ -78,6 +82,7 @@ void	refresh(t_args_events *args)
     }
   print_hero(args);
 }
+
 int	key_hook(int keycode, t_args_events *args)
 {
   printf("%d\n", keycode);
