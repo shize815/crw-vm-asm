@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Wed Feb 15 11:15:45 2012 pierre ecormier
-** Last update Tue Mar 20 13:29:32 2012 guillaume boell
+** Last update Wed Mar 21 10:15:52 2012 pierre ecormier
 */
 
 #include	<sys/types.h>
@@ -45,7 +45,8 @@ void		write_header(char *header[2], int size, int fd)
   write(fd, "\0\xea\x83\xf3", 4);
   i = -1;
   while (header[1] && ++i < 132 && header[1][i] != '\0');
-  write(fd, header[1], i);
+  if (header[1])
+    write(fd, header[1], i);
   while (i++ < 132)
     write(fd, "", 1);
   i = -1;
@@ -56,7 +57,8 @@ void		write_header(char *header[2], int size, int fd)
     }
   i = -1;
   while (header[0] && ++i < 2050 && header[0][i] != '\0');
-  write(fd, header[0], i);
+  if (header[0])
+    write(fd, header[0], i);
   while (i++ < 2050)
     write(fd, "", 1);
 }
@@ -69,12 +71,12 @@ int		write_file(t_asmline *line, char *header[2], int size, char *path)
 
   if ((dest = get_path(path)) == NULL)
     return (1);
-  if ((fd = open(dest, O_WRONLY | O_CREAT | O_TRUNC, 0644)) == 1)
+  if ((fd = open(dest, O_WRONLY | O_CREAT | O_TRUNC, 0644)) == -1)
     return (1);
   write_header(header, size, fd);
   while (line)
     {
-      if (write(fd, line->bin, line->size + 1) == -1)
+      if (write(fd, line->bin, line->size) == -1)
 	my_putstr("Write error\n");
       line = line->next;
     }
