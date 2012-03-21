@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Wed Mar 21 14:43:14 2012 guillaume boell
+** Last update Wed Mar 21 15:05:39 2012 guillaume boell
 */
 #include <math.h>
 #include "corewar.h"
@@ -14,7 +14,6 @@
 
 int	gere_expose(t_args_events *args)
 {
-  refresh(args);
   mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
   return (0);
 }
@@ -52,7 +51,6 @@ void	print_hero(t_args_events *args)
 
   color.r = 250;
   do_carre(args, 12,  &args->hero_pos, &color);
-  /* set_pix(COL + 128, COL + 128, COL + 128, args->img_data + ((args->hero_pos.x + (args->hero_pos.y * LARG)) * 4)); */
 }
 
 void	refresh(t_args_events *args)
@@ -82,8 +80,11 @@ void	refresh(t_args_events *args)
 }
 int	key_hook(int keycode, t_args_events *args)
 {
-  refresh(args);
-  mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
+  printf("%d\n", keycode);
+  if (keycode == LEFT)
+    args->hero_pos.x = args->hero_pos.x - 10;
+  if (keycode == RIGHT)
+    args->hero_pos.x = args->hero_pos.x + 10;
   if (keycode == 65307)
     exit(0);
   return (0);

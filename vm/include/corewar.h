@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Wed Mar 21 14:43:46 2012 guillaume boell
+** Last update Wed Mar 21 14:48:21 2012 guillaume boell
 */
 
 #ifndef			__COREWAR_H__
@@ -30,7 +30,8 @@
 #define			LFORK	15
 #define			AFF	16
 #define			LARG	1000
-#define			COL	(args->img_data + ((args->hero_pos.x + (args->hero_pos.x * LARG)) * 4))
+#define			LEFT	65361
+#define			RIGHT	65363
 
 typedef	struct		s_champ
 {
