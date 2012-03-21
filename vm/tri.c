@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Wed Mar 21 18:00:44 2012 clovis kyndt
+** Last update Thu Mar 22 00:31:13 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -56,7 +56,7 @@ void		print_my_arg(char *map, int *i, int arg[], char nb, char type[])
       is = s;
       while (s)
 	{
-	  *i = (*i + 1) % MEM_SIZE;
+          *i = (*i + 1) % MEM_SIZE;
 	  if (is == s)
 	    arg[n] = map[*i];
 	  else
@@ -78,17 +78,20 @@ void            print_my_arg_spec(char *map, int *i, int arg[], int s)
   is = s;
   while (s)
     {
-      *i = (*i + 1) % MEM_SIZE;
       if (is == s)
-	arg[0] = map[*i];
+	{
+	  arg[0] = (char unsigned)map[*i];
+	}
       else
 	{
 	  arg[0] = arg[0] << 8;
-	  arg[0] = map[*i] | arg[0];
+	  arg[0] = (char unsigned)map[*i] | arg[0];
 	}
+      *i = (*i + 1) % MEM_SIZE;
       s--;
     }
-  arg[0] = '\0';
+  printf("ARG[0] : %d\n", arg[0]);
+  arg[1] = '\0';
 }
 
 void            print_my_arg_spec_eval(char *map, int *i, int arg[], char act)
@@ -119,7 +122,7 @@ int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_
   champ->pc = ptr_i;
   nb = (arena->map)[*i] - 1;
   printf("nb:%d champ->pc(old):%d champ->pc(new):%d\n", nb, *i, champ->pc);
-  if (nb < 16 && nb > 0)
+  if (nb < 16 && nb >= 0)
     (act_fct[nb])(arena, champ, type, arg);
   return (0);
 }
@@ -233,6 +236,7 @@ t_champ		*kill_champ(t_champ *champs)
   if (tmp->last_live == 0)
     {
       tmp = tmp->next;
+      printf("1champ name : %s ; live : %d\n", champs->name, tmp->last_live);
       free(champs);
       return (tmp);
     }
@@ -242,13 +246,26 @@ t_champ		*kill_champ(t_champ *champs)
     {
       if (tmp->last_live == 0)
 	{
+	  printf("2champ name : %s ; live : %d\n", champs->name, tmp->last_live);
 	  tmp2->next = tmp->next;
 	  free(tmp);
 	  return (champs);
 	}
       tmp = tmp->next;
     }
-  return (tmp);
+  return (champs);
+}
+
+
+void		init_live(t_champ *champ)
+{
+  t_champ	*tmp;
+
+  while (tmp != NULL)
+    {
+      tmp->nb_live = 0;
+      tmp = tmp->next;
+    }
 }
 
 void		apply_search(t_arena *arena, t_args_events *args)
@@ -263,6 +280,7 @@ void		apply_search(t_arena *arena, t_args_events *args)
     {
       cycle = 0;
       arena->nb_live = 0;
+      init_live(arena->champs);
       while (cycle < arena->cycle_to_die && arena->nb_live < NBR_LIVE)
 	{
 	  do_refresh(args);
@@ -272,6 +290,7 @@ void		apply_search(t_arena *arena, t_args_events *args)
       if (arena->nb_live >= NBR_LIVE)
 	arena->cycle_to_die -= CYCLE_DELTA;
       arena->champs = kill_champ(arena->champs);
+      puts("Boucle");
     }
   puts("END");
 }

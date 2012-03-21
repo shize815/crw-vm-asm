@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Wed Mar 21 16:01:25 2012 clovis kyndt
+** Last update Thu Mar 22 00:09:22 2012 clovis kyndt
 */
 
 #ifndef			__COREWAR_H__
@@ -56,7 +56,7 @@ typedef	struct		s_arena
   int			cycle_max;
   int			nb_live;
   int			nb_process;
-  char			*map;
+  unsigned char		*map;
 }			t_arena;
 
 typedef struct          s_pos
