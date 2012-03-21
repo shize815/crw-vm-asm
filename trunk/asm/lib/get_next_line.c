@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Nov  7 07:40:39 2011 pierre ecormier
-** Last update Tue Jan 17 10:22:11 2012 pierre ecormier
+** Last update Tue Mar 20 19:27:12 2012 pierre ecormier
 */
 
 #include	<unistd.h>
@@ -109,6 +109,11 @@ char		*get_next_line(const int fd)
   char		*line;
   int		size;
 
+  if (fd == -1)
+    {
+      begin = end = NULL;
+      return (NULL);
+    }
   if (begin == NULL || (size = get_line_length(begin)) <= 0)
     fill_list(fd, &begin, &end);
   size = get_line_length(begin);
