@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 20 16:53:47 2012 guillaume boell
-** Last update Wed Mar 21 16:43:50 2012 guillaume boell
+** Last update Wed Mar 21 18:05:14 2012 clovis kyndt
 */
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -219,7 +219,8 @@ void		aff_mem(char *mem)
       i = 0;
       while (i == 0 || i < 128)
 	{
-	  my_putchar(mem[y] + '0');
+	  my_putchar('.');
+	  my_putbin(mem[y]);
 	  i++;
 	  y++;
 	}
