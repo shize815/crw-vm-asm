@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 20 16:53:47 2012 guillaume boell
-** Last update Wed Mar 21 16:03:25 2012 clovis kyndt
+** Last update Wed Mar 21 16:32:06 2012 guillaume boell
 */
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -248,7 +248,7 @@ int		main(int argc, char **argv)
   arena.nb_live = arena.nb_process = 0;
   arena.map = map;
   aff_mem(map);
-  /*  launch_game(&arena); */
-  apply_search(&arena);
+  launch_game(&arena);
+  /* apply_search(&arena); */
   return (0);
 }
