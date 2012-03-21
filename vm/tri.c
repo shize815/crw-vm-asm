@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Wed Mar 21 16:18:35 2012 clovis kyndt
+** Last update Wed Mar 21 16:31:55 2012 guillaume boell
 */
 
 #include        "op.h"
@@ -198,7 +198,7 @@ t_champ		*kill_champ(t_champ *champs)
   return (tmp);
 }
 
-void		apply_search(t_arena *arena)
+void		apply_search(t_arena *arena, t_args_events *args)
 {
   int		cycle;
   int		cycle_m;
@@ -212,6 +212,7 @@ void		apply_search(t_arena *arena)
       arena->nb_live = 0;
       while (cycle < arena->cycle_to_die && arena->nb_live < NBR_LIVE)
 	{
+	  do_refresh(args);
 	  read_arg(arena, act_fct, cycle);
 	  cycle++;
 	}

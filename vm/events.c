@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Wed Mar 21 15:45:35 2012 guillaume boell
+** Last update Wed Mar 21 16:37:47 2012 guillaume boell
 */
 #include <math.h>
 #include "corewar.h"
@@ -14,6 +14,12 @@
 
 int	gere_expose(t_args_events *args)
 {
+  int	didonce;
+
+  didonce = 0;
+  if (!didonce)
+    apply_search(args->arena, args);
+  didonce = 1;
   mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
   return (0);
 }
@@ -49,9 +55,9 @@ void	print_hero(t_args_events *args)
 {
   t_col	color;
 
-  args->hero_color.r += 1;
-  args->hero_color.g += 2;
-  args->hero_color.b += 3;
+  args->hero_color.r += 3;
+  args->hero_color.g += 1;
+  args->hero_color.b += 2;
   do_carre(args, 12,  &args->hero_pos, &args->hero_color);
 }
 
@@ -85,9 +91,11 @@ void	refresh(t_args_events *args)
 
 int	key_hook(int keycode, t_args_events *args)
 {
-  printf("%d\n", keycode);
-  if (keycode == LEFT)
+  /* printf("%d\n", keycode); */
+  if (keycode == LEFT && args->hero_pos.x >= 10)
     args->hero_pos.x = args->hero_pos.x - 10;
+  else if (keycode == LEFT && args->hero_pos.x < 10)
+    args->hero_pos.x = LARG - args->hero_pos.x;
   if (keycode == RIGHT)
     args->hero_pos.x = args->hero_pos.x + 10;
   if (keycode == 65307)
