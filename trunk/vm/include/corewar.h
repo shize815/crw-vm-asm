@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Wed Mar 21 15:48:45 2012 guillaume boell
+** Last update Wed Mar 21 16:01:25 2012 clovis kyndt
 */
 
 #ifndef			__COREWAR_H__
@@ -42,6 +42,7 @@ typedef	struct		s_champ
   int			last_live;
   int			nb_live;
   int			timer;
+  int			cycle;
   char			carry;
   int			pc;
   int			r[16];

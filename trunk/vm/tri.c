@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Tue Mar 20 14:56:47 2012 clovis kyndt
+** Last update Wed Mar 21 16:18:35 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -67,33 +67,70 @@ int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_
       print_my_arg(arena->map, &ptr_i, arg, nb);
     }
   else
-    print_my_arg(arena->map, i, arg, 1);
+    print_my_arg(arena->map, &ptr_i, arg, 1);
+  champ->pc = ptr_i;
   nb = (arena->map)[*i] - 1;
-  puts("1.");
-  printf("nb:%d\n", nb);
+  printf("nb:%d champ->pc(old):%d champ->pc(new):%d\n", nb, *i, champ->pc);
   if (nb < 16 && nb > 0)
     (act_fct[nb])(arena, champ, type, arg);
-  puts("2.");
   return (0);
 }
 
-int		read_arg(t_champ *champ, t_arena *arena, void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]))
+void		init_time_tab(int time_tab[])
+{
+  time_tab[0] = 10;
+  time_tab[1] = 5;
+  time_tab[2] = 5;
+  time_tab[3] = 10;
+  time_tab[4] = 10;
+  time_tab[5] = 6;
+  time_tab[6] = 6;
+  time_tab[7] = 6;
+  time_tab[8] = 20;
+  time_tab[9] = 25;
+  time_tab[10] = 25;
+  time_tab[11] = 800;
+  time_tab[12] = 10;
+  time_tab[13] = 50;
+  time_tab[14] = 1000;
+  time_tab[15] = 2;
+}
+
+int		time_action(char c)
+{
+  int		time_tab[16];
+  int		i;
+
+  i = c;
+  init_time_tab(time_tab);
+  if (c >= 0 && c < 16)
+    return (time_tab[i]);
+  return (0);
+}
+
+int		read_arg(t_arena *arena, void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]), int cycle)
 {
   int		i;
-  int		cycle_d;
+  t_champ	*champ;
   char		*mem;
   char		type;
+  int		time_act;
 
+  champ = arena->champs;
   mem = arena->map;
-  cycle_d = arena->cycle_to_die;
-  i = champ->pc;
-  while (cycle_d > 0)
+  while (champ != NULL)
     {
+      i = champ->pc;
       type = 1;
       if (mem[i] == LIVE || mem[i] == ZJMP || mem[i] == FORK || mem[i] == LFORK)
 	type = 0;
-      cycle_d = dedi_no_tab(champ, arena, &i, type, act_fct);
-      puts(".");
+      time_act = time_action(mem[i]);
+     if ((champ->cycle + time_act) <= cycle)
+	{
+	  dedi_no_tab(champ, arena, &i, type, act_fct);
+	  champ->cycle = cycle;
+	}
+      champ = champ->next;
     }
   return (0);
 }
@@ -119,18 +156,68 @@ void		init_fct_tab(void  (*act_fct[])(t_arena *arena, t_champ *champ, char type[
   act_fct[15] = aff;
 }
 
+int		champ_count(t_champ *champ)
+{
+  int		i;
+  t_champ	*tmp;
+
+  i = 0;
+  tmp = champ;
+  while (tmp != NULL)
+    {
+      i++;
+      tmp = tmp->next;
+    }
+  return (i);
+}
+
+t_champ		*kill_champ(t_champ *champs)
+{
+  t_champ	*tmp;
+  t_champ	*tmp2;
+
+  tmp = champs;
+  if (tmp->last_live == 0)
+    {
+      tmp = tmp->next;
+      free(champs);
+      return (tmp);
+    }
+  tmp2 = tmp;
+  tmp = tmp->next;
+  while (tmp != NULL)
+    {
+      if (tmp->last_live == 0)
+	{
+	  tmp2->next = tmp->next;
+	  free(tmp);
+	  return (champs);
+	}
+      tmp = tmp->next;
+    }
+  return (tmp);
+}
+
 void		apply_search(t_arena *arena)
 {
-  t_champ	*champ;
+  int		cycle;
+  int		cycle_m;
   void		(*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]);
 
   init_fct_tab(act_fct);
-  champ = arena->champs;
-  while (champ != NULL)
+  cycle_m = arena->cycle_to_die;
+  while (champ_count(arena->champs) > 1)
     {
-      puts("init");
-      read_arg(champ, arena, act_fct);
-      champ = champ->next;
+      cycle = 0;
+      arena->nb_live = 0;
+      while (cycle < arena->cycle_to_die && arena->nb_live < NBR_LIVE)
+	{
+	  read_arg(arena, act_fct, cycle);
+	  cycle++;
+	}
+      if (arena->nb_live >= NBR_LIVE)
+	arena->cycle_to_die -= CYCLE_DELTA;
+      arena->champs = kill_champ(arena->champs);
     }
   puts("END");
 }
