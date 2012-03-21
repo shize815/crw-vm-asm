@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Wed Mar 21 14:13:39 2012 guillaume boell
+** Last update Wed Mar 21 14:43:46 2012 guillaume boell
 */
 
 #ifndef			__COREWAR_H__
@@ -85,5 +85,6 @@ void			set_pix(char r, char g, char b, char *img_data);
 void			*xmalloc(size_t size);
 int			gere_expose(t_args_events *args);
 int			key_hook(int keycode, t_args_events *args);
+void			do_refresh(t_args_events *args);
 
 #endif

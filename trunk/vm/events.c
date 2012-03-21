@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Wed Mar 21 14:17:54 2012 guillaume boell
+** Last update Wed Mar 21 14:43:14 2012 guillaume boell
 */
 #include <math.h>
 #include "corewar.h"
@@ -15,9 +15,15 @@
 int	gere_expose(t_args_events *args)
 {
   refresh(args);
-  print_hero(args);
   mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
   return (0);
+}
+
+void	do_refresh(t_args_events *args)
+{
+  refresh(args);
+  args->hero_pos.y = args->hero_pos.y + 1;
+  mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
 }
 
 void	do_carre(t_args_events *args, int taille, t_pos *pos, t_col *color)
@@ -45,10 +51,8 @@ void	print_hero(t_args_events *args)
   t_col	color;
 
   color.r = 250;
-  args->hero_pos.x = args->hero_pos.y = 0;
   do_carre(args, 12,  &args->hero_pos, &color);
   /* set_pix(COL + 128, COL + 128, COL + 128, args->img_data + ((args->hero_pos.x + (args->hero_pos.y * LARG)) * 4)); */
-  args->hero_pos.y = args->hero_pos.y + 1;
 }
 
 void	refresh(t_args_events *args)
@@ -61,23 +65,25 @@ void	refresh(t_args_events *args)
 
   i = n = 0;
   taille = LARG / sqrt(MEM_SIZE);
+  args->hero_pos.y = args->hero_pos.y + 1;
   while (i < MEM_SIZE)
     {
       pos.x = (n * taille) % (LARG - taille);
       pos.y = ((i * taille) / (LARG - taille)) * taille;
       color.r = color.g = color.b = args->arena->map[i] * 15;
-      if (args->arena->map[i])
+      if (args->arena->map[i] + 1)
 	do_carre(args, taille, &pos, &color);
       i++;
       n++;
       if (LARG / taille <= n)
 	n = 0;
     }
+  print_hero(args);
 }
 int	key_hook(int keycode, t_args_events *args)
 {
   refresh(args);
-  print_hero(args);
+  mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
   if (keycode == 65307)
     exit(0);
   return (0);

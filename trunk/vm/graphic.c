@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Tue Mar 20 15:27:18 2012 guillaume boell
-** Last update Wed Mar 21 14:17:18 2012 guillaume boell
+** Last update Wed Mar 21 14:43:25 2012 guillaume boell
 */
 #include <stdlib.h>
 #include "minilibx/mlx.h"
@@ -36,6 +36,7 @@ void		launch_game(t_arena *arena)
 	    mlx_clear_window(id_aff, id_fenetre);
 	    mlx_expose_hook(id_fenetre, gere_expose, &args);
 	    mlx_key_hook(id_fenetre, key_hook, &args);
+	    mlx_loop_hook(id_aff, do_refresh, &args);
 	    mlx_loop(id_aff);
 	  }
 }
