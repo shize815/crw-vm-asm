@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 15:22:42 2012 pierre ecormier
-** Last update Sun Feb 19 19:39:26 2012 pierre ecormier
+** Last update Wed Mar 21 08:25:36 2012 pierre ecormier
 */
 
 #include	<sys/types.h>
@@ -28,17 +28,18 @@ int		convert_file(char *path)
   op_start = op_end = NULL;
   if ((fd = open(path, O_RDONLY)) == -1)
     return (1);
+  get_next_line(-1);
   while ((s = get_next_line(fd)))
     {
-      current_op = malloc(sizeof(t_asmline));
-      if (current_op == NULL)
-	return (0);
+      if ((current_op = malloc(sizeof(t_asmline))) == NULL)
+	return (1);
       if (parse_line(s, current_op, 0))
 	{
 	  push_asm_back(&op_start, &op_end, current_op);
 	  if (current_op->code == -1 && current_op->argv[1])
 	    {
-	      current_op = malloc(sizeof(t_asmline));
+	      if ((current_op = malloc(sizeof(t_asmline))) == NULL)
+		return (1);
 	      parse_line(s, current_op, 1);
 	      push_asm_back(&op_start, &op_end, current_op);
 	    }
@@ -46,6 +47,7 @@ int		convert_file(char *path)
       else
 	free(current_op);
     }
+  close(fd);
   write_asm(op_start, path);
   return (0);
 }

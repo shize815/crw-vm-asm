@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 17:21:11 2012 pierre ecormier
-** Last update Sun Feb 19 20:21:34 2012 pierre ecormier
+** Last update Tue Mar 20 16:10:47 2012 pierre ecormier
 */
 
 #include	<stdlib.h>
@@ -55,7 +55,9 @@ int		arg_size(int code, int offset, int type)
     return (IND_SIZE);
   if (code == 0x0b && offset > 0 && type != T_REG)
     return (IND_SIZE);
-  if (code == 0x0a && offset < 2)
+  if (code == 0x02 && offset == 0 && type == T_LAB)
+    return (DIR_SIZE);
+  if (code == 0x0a && offset < 2 && type != T_REG)
     return (IND_SIZE);
   if (type == T_LAB || type == T_IND)
     return (IND_SIZE);
