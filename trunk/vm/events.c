@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Wed Mar 21 15:05:39 2012 guillaume boell
+** Last update Wed Mar 21 15:15:24 2012 guillaume boell
 */
 #include <math.h>
 #include "corewar.h"

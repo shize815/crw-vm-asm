@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 20 16:53:47 2012 guillaume boell
-** Last update Wed Mar 21 10:39:55 2012 guillaume boell
+** Last update Wed Mar 21 15:18:38 2012 guillaume boell
 */
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -151,7 +151,7 @@ int		write_one_champ(char *mem, char *file)
     {
       while (i < 128)
 	{
-	  mem[y] = buf[i];
+	  mem[y % MEM_SIZE] = buf[i];
 	  y++;
 	  i++;
 	}
@@ -199,7 +199,6 @@ void		write_memory(char *mem, t_champ *champ, int *load_addr)
   max = 0;
   while (champ)
     {
-      printf("%s\n", champ->name);
       max++;
       champ = champ->next;
     }
