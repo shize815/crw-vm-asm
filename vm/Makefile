@@ -49,7 +49,7 @@ RM=	@rm -f
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	cc -o $(NAME) $(OBJ) $(LIB);
+	gcc -o $(NAME) $(OBJ) $(LIB);
 
 clean:
 	$(RM) $(OBJ)

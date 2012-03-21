@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Wed Mar 21 16:31:55 2012 guillaume boell
+** Last update Wed Mar 21 18:00:44 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -37,21 +37,69 @@ char            select_oct(char tb[], char c)
   return (arg);
 }
 
-void		print_my_arg(char *map, int *i, int arg[], char nb)
+void		print_my_arg(char *map, int *i, int arg[], char nb, char type[])
 {
   int		n;
+  int		s;
+  int		is;
 
   n  = 0;
   while (nb > 0 && n < 4)
     {
-      *i = (*i + 1) % MEM_SIZE;
-      arg[n] = map[*i];
+      s = 0;
+      if (type[n] == 1)
+	s = REG_SIZE;
+      else if (type[n] == 2)
+	s = DIR_SIZE;
+      else if (type[n] == 3)
+	s = IND_SIZE;
+      is = s;
+      while (s)
+	{
+	  *i = (*i + 1) % MEM_SIZE;
+	  if (is == s)
+	    arg[n] = map[*i];
+	  else
+	    {
+	      arg[n] = arg[n] << 8;
+	      arg[n] = map[*i] | arg[n];
+	    }
+	  s--;
+	}
       nb--;
     }
   arg[n] = '\0';
 }
 
-int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]))
+void            print_my_arg_spec(char *map, int *i, int arg[], int s)
+{
+  int           is;
+
+  is = s;
+  while (s)
+    {
+      *i = (*i + 1) % MEM_SIZE;
+      if (is == s)
+	arg[0] = map[*i];
+      else
+	{
+	  arg[0] = arg[0] << 8;
+	  arg[0] = map[*i] | arg[0];
+	}
+      s--;
+    }
+  arg[0] = '\0';
+}
+
+void            print_my_arg_spec_eval(char *map, int *i, int arg[], char act)
+{
+  if (act == LIVE)
+    print_my_arg_spec(map, i, arg, 4);
+  if (act == ZJMP || act == FORK || act == LFORK)
+    print_my_arg_spec(map, i, arg, IND_SIZE);
+}
+
+int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]), char act)
 {
   int		arg[4];
   char		type[4];
@@ -64,10 +112,10 @@ int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_
     {
       nb = (arena->map)[ptr_i % MEM_SIZE];
       nb = select_oct(type, nb);
-      print_my_arg(arena->map, &ptr_i, arg, nb);
+      print_my_arg(arena->map, &ptr_i, arg, nb, type);
     }
-  else
-    print_my_arg(arena->map, &ptr_i, arg, 1);
+  else 
+    print_my_arg_spec_eval(arena->map, &ptr_i, arg, act);
   champ->pc = ptr_i;
   nb = (arena->map)[*i] - 1;
   printf("nb:%d champ->pc(old):%d champ->pc(new):%d\n", nb, *i, champ->pc);
@@ -108,6 +156,13 @@ int		time_action(char c)
   return (0);
 }
 
+int		dec_type(char c)
+{
+  if (c == LIVE || c == ZJMP || c == FORK || c == LFORK)
+    return (0);
+  return (1);
+}
+
 int		read_arg(t_arena *arena, void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]), int cycle)
 {
   int		i;
@@ -121,13 +176,11 @@ int		read_arg(t_arena *arena, void (*act_fct[16])(t_arena *arena, t_champ *champ
   while (champ != NULL)
     {
       i = champ->pc;
-      type = 1;
-      if (mem[i] == LIVE || mem[i] == ZJMP || mem[i] == FORK || mem[i] == LFORK)
-	type = 0;
       time_act = time_action(mem[i]);
-     if ((champ->cycle + time_act) <= cycle)
+      if ((champ->cycle + time_act) <= cycle)
 	{
-	  dedi_no_tab(champ, arena, &i, type, act_fct);
+	  type = dec_type(mem[i]);
+	  dedi_no_tab(champ, arena, &i, type, act_fct, mem[i]);
 	  champ->cycle = cycle;
 	}
       champ = champ->next;

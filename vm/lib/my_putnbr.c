@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Sun Feb 12 18:49:03 2012 pierre ecormier
-** Last update Wed Feb 15 09:08:18 2012 pierre ecormier
+** Last update Wed Mar 21 18:07:22 2012 clovis kyndt
 */
 
 #include	<unistd.h>
@@ -18,6 +18,21 @@ void		my_putchar(char c)
       if (write(2, &c, 1) == -1)
 	return;
     }
+}
+
+void		my_putbin(char c)
+{
+  int		i;
+  int		n;
+
+  i = 7;
+  while (i >= 0)
+    {
+      n = !!(c & (1 << i));
+      i--;
+      my_putchar(n + '0');
+    }
+
 }
 
 void		my_putstr(char *s)
