@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Tue Mar 20 16:14:38 2012 guillaume boell
+** Last update Wed Mar 21 14:13:39 2012 guillaume boell
 */
 
 #ifndef			__COREWAR_H__
@@ -30,7 +30,7 @@
 #define			LFORK	15
 #define			AFF	16
 #define			LARG	1000
-#define			HAUT	1000
+#define			COL	(args->img_data + ((args->hero_pos.x + (args->hero_pos.x * LARG)) * 4))
 
 typedef	struct		s_champ
 {
@@ -56,11 +56,25 @@ typedef	struct		s_arena
   char			*map;
 }			t_arena;
 
+typedef struct          s_pos
+{
+  int			x;
+  int			y;
+}                       t_pos;
+
+typedef struct          s_col
+{
+  char			r;
+  char			g;
+  char			b;
+}                       t_col;
+
 typedef	struct		s_args_events
 {
   void			*id_aff;
   void			*id_fenetre;
   void			*img_ptr;
+  t_pos			hero_pos;
   char			*img_data;
   t_arena		*arena;
 }			t_args_events;
