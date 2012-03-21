@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 17:21:11 2012 pierre ecormier
-** Last update Wed Mar 21 10:18:46 2012 pierre ecormier
+** Last update Wed Mar 21 10:30:29 2012 pierre ecormier
 */
 
 #include	<stdlib.h>
@@ -121,7 +121,7 @@ int		write_asm(t_asmline *line, char *path)
   begin = line;
   while (line)
     {
-      line->size = 0;
+      line->size = -1;
       next = line->next;
       if (line->code == -1)
 	{
