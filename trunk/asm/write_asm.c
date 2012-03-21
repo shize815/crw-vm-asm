@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 17:21:11 2012 pierre ecormier
-** Last update Tue Mar 20 16:10:47 2012 pierre ecormier
+** Last update Wed Mar 21 10:18:46 2012 pierre ecormier
 */
 
 #include	<stdlib.h>
@@ -108,12 +108,12 @@ int		replace_labels(t_asmline *line, t_asmline *lbls)
 int		write_asm(t_asmline *line, char *path)
 {
   char		*header[2];
+  t_asmline	*begin;
   t_asmline	*next;
   t_asmline	*lbls;
-  t_asmline	*begin;
-  int		i;
   int		size;
   int		pos;
+  int		i;
 
   header[0] = header[1] = NULL;
   pos = 0;
@@ -121,6 +121,7 @@ int		write_asm(t_asmline *line, char *path)
   begin = line;
   while (line)
     {
+      line->size = 0;
       next = line->next;
       if (line->code == -1)
 	{
