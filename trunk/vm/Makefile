@@ -42,7 +42,7 @@ CFLAGS=	-I include/								\
 	-ansi -pedantic								\
 	-g
 
-LIB=	-L./minilibx/ -lmlx_x86_64-linux -L/usr/lib/X11 -lXext -lX11
+LIB=	-L./minilibx/ -lmlx_x86_64-linux -L/usr/lib/X11 -lXext -lX11 -lm
 
 RM=	@rm -f
 
