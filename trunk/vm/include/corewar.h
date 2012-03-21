@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Wed Mar 21 14:48:21 2012 guillaume boell
+** Last update Wed Mar 21 15:48:45 2012 guillaume boell
 */
 
 #ifndef			__COREWAR_H__
@@ -32,6 +32,7 @@
 #define			LARG	1000
 #define			LEFT	65361
 #define			RIGHT	65363
+#define			HERO_H	12
 
 typedef	struct		s_champ
 {
@@ -76,6 +77,7 @@ typedef	struct		s_args_events
   void			*id_fenetre;
   void			*img_ptr;
   t_pos			hero_pos;
+  t_col			hero_color;
   char			*img_data;
   t_arena		*arena;
 }			t_args_events;
