@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Thu Mar 22 00:31:13 2012 clovis kyndt
+** Last update Thu Mar 22 13:07:39 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -98,7 +98,9 @@ void            print_my_arg_spec_eval(char *map, int *i, int arg[], char act)
 {
   if (act == LIVE)
     print_my_arg_spec(map, i, arg, 4);
-  if (act == ZJMP || act == FORK || act == LFORK)
+  else if (act == ZJMP)
+    print_my_arg_spec(map, i, arg, IND_SIZE);
+  else if (act == FORK || act == LFORK)
     print_my_arg_spec(map, i, arg, IND_SIZE);
 }
 
@@ -161,6 +163,40 @@ int		time_action(char c)
 
 int		dec_type(char c)
 {
+  /* DEBUG */
+  if (c == LIVE)
+    printf("LIVE = ");
+  else if (c == LD)
+    printf("LD = \n");
+  else if (c == ST)
+    printf("ST = \n");
+  else if (c == ADD)
+    printf("ADD = \n");
+  else if (c == SUB)
+    printf("SUB = \n");
+  else if (c == AND)
+    printf("AND = \n");
+  else if (c == OR)
+    printf("OR = \n");
+  else if (c == XOR)
+    printf("XOR = \n");
+  else if (c == ZJMP)
+    printf("ZJMP = \n");
+  else if (c == LDI)
+    printf("LDI = \n");
+  else if (c == STI)
+    printf("STI = \n");
+  else if (c == FORK)
+    printf("FORK = \n");
+  else if (c == LLD)
+    printf("LLD = \n");
+  else if (c == LLDI)
+    printf("LLDI = \n");
+  else if (c == LFORK)
+    printf("LFORK = \n");
+  else if (c == AFF)
+    printf("AFF = \n");
+  /* END */
   if (c == LIVE || c == ZJMP || c == FORK || c == LFORK)
     return (0);
   return (1);
