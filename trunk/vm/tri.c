@@ -5,14 +5,14 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Thu Mar 22 13:28:14 2012 clovis kyndt
+** Last update Thu Mar 22 16:09:43 2012 clovis kyndt
 */
 
 #include        "op.h"
 #include        "corewar.h"
 #include        "vm_funcs.h"
 
-char            select_oct(char tb[], char c)
+char            select_oct(char tb[], unsigned char c)
 {
   int           i;
   int           n;
@@ -37,6 +37,28 @@ char            select_oct(char tb[], char c)
   return (arg);
 }
 
+void             type_exp(char c, char type[])
+{
+  if (c == LD)
+    {
+      type[1] = 1;
+      type[2] = '\0';
+    }
+  if (c == ZJMP)
+    {
+      type[0] = 2;
+      type[1] = '\0';
+    }
+  if (c == STI)
+    {
+      if (type[1] != 1)
+	type[1] = 4;
+      if (type[2] != 1)
+	type[2] = 4;
+      type[3] = '\0';
+    }
+}
+
 void		print_my_arg(char *map, int *i, int arg[], char nb, char type[])
 {
   int		n;
@@ -51,7 +73,7 @@ void		print_my_arg(char *map, int *i, int arg[], char nb, char type[])
 	s = REG_SIZE;
       else if (type[n] == 2)
 	s = DIR_SIZE;
-      else if (type[n] == 3)
+      else if (type[n] == 3 || type[n] == 4)
 	s = IND_SIZE;
       is = s;
       while (s)
@@ -61,12 +83,12 @@ void		print_my_arg(char *map, int *i, int arg[], char nb, char type[])
 	    arg[n] = map[*i];
 	  else
 	    {
-	      arg[n] = arg[n] << 8;
-	      arg[n] = map[*i] | arg[n];
+	      arg[n] = (unsigned char)arg[n] << 8;
+	      arg[n] = (unsigned char)map[*i] | (unsigned char)arg[n];
 	    }
 	  s--;
 	}
-      printf("n:%d val:%d \n", n, arg[n]);
+      printf("\tn:%d val:%d \n", n, arg[n]);
       n++;
       nb--;
     }
@@ -87,12 +109,12 @@ void            print_my_arg_spec(char *map, int *i, int arg[], int s)
       else
 	{
 	  arg[0] = arg[0] << 8;
-	  arg[0] = (char unsigned)map[*i] | arg[0];
+	  arg[0] = (char unsigned)map[*i] | (unsigned char)arg[0];
 	}
       *i = (*i + 1) % MEM_SIZE;
       s--;
     }
-  printf("ARG[0] : %d\n", arg[0]);
+  printf("\t ARG[0] : %d\n\n", arg[0]);
   arg[1] = '\0';
 }
 
@@ -106,7 +128,7 @@ void            print_my_arg_spec_eval(char *map, int *i, int arg[], char act)
     print_my_arg_spec(map, i, arg, IND_SIZE);
 }
 
-int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]), char act)
+int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]), unsigned char act)
 {
   int		arg[4];
   char		type[4];
@@ -119,13 +141,17 @@ int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_
     {
       nb = (arena->map)[ptr_i % MEM_SIZE];
       nb = select_oct(type, nb);
+      type_exp(act, type);
       print_my_arg(arena->map, &ptr_i, arg, nb, type);
     }
   else 
     print_my_arg_spec_eval(arena->map, &ptr_i, arg, act);
   champ->pc = ptr_i;
   nb = (arena->map)[*i] - 1;
-  printf("nb:%d champ->pc(old):%d champ->pc(new):%d\n", nb, *i, champ->pc);
+  if (nb < 0 || nb >= 16)
+    printf("ERROR value nb /= [0;15], %d\n", nb);
+  else
+    printf("nb:%d champ->pc(old):%d champ->pc(new):%d\n", nb, *i, champ->pc);
   /* DEBUG */
   int		d = 0;
   while (arg[d] == '\0' && d < 4)
@@ -170,6 +196,8 @@ int		time_action(char c)
   init_time_tab(time_tab);
   if (c >= 0 && c < 16)
     return (time_tab[i]);
+  else
+    printf("- RIEN");
   return (0);
 }
 
@@ -177,37 +205,37 @@ int		dec_type(char c)
 {
   /* DEBUG */
   if (c == LIVE)
-    printf("LIVE ");
+    printf("- LIVE ");
   else if (c == LD)
-    printf("LD ");
+    printf("- LD ");
   else if (c == ST)
-    printf("ST ");
+    printf("- ST ");
   else if (c == ADD)
-    printf("ADD ");
+    printf("- ADD ");
   else if (c == SUB)
-    printf("SUB ");
+    printf("- SUB ");
   else if (c == AND)
-    printf("AND ");
+    printf("- AND ");
   else if (c == OR)
-    printf("OR ");
+    printf("- OR ");
   else if (c == XOR)
-    printf("XOR ");
+    printf("- XOR ");
   else if (c == ZJMP)
-    printf("ZJMP ");
+    printf("- ZJMP ");
   else if (c == LDI)
-    printf("LDI ");
+    printf("- LDI ");
   else if (c == STI)
-    printf("STI ");
+    printf("- STI ");
   else if (c == FORK)
-    printf("FORK ");
+    printf("- FORK ");
   else if (c == LLD)
-    printf("LLD ");
+    printf("- LLD ");
   else if (c == LLDI)
-    printf("LLDI ");
+    printf("- LLDI ");
   else if (c == LFORK)
-    printf("LFORK ");
+    printf("- LFORK ");
   else if (c == AFF)
-    printf("AFF ");
+    printf("- AFF ");
   /* END */
   if (c == LIVE || c == ZJMP || c == FORK || c == LFORK)
     return (0);
