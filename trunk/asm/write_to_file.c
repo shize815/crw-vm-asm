@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Wed Feb 15 11:15:45 2012 pierre ecormier
-** Last update Wed Mar 21 10:27:32 2012 pierre ecormier
+** Last update Thu Mar 22 10:09:33 2012 pierre ecormier
 */
 
 #include	<sys/types.h>
@@ -56,10 +56,10 @@ void		write_header(char *header[2], int size, int fd)
       write(fd, &c, 1);
     }
   i = -1;
-  while (header[0] && ++i < 2050 && header[0][i] != '\0');
+  while (header[0] && ++i < 2052 && header[0][i] != '\0');
   if (header[0])
     write(fd, header[0], i);
-  while (i++ < 2050)
+  while (i++ < 2052)
     write(fd, "", 1);
 }
 
@@ -76,7 +76,7 @@ int		write_file(t_asmline *line, char *header[2], int size, char *path)
   write_header(header, size, fd);
   while (line)
     {
-      if (write(fd, line->bin, line->size + 1) == -1)
+      if (line->size + 1 > 0 && write(fd, line->bin, line->size + 1) == -1)
 	my_putstr("Write error\n");
       line = line->next;
     }

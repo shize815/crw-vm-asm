@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 17:21:11 2012 pierre ecormier
-** Last update Wed Mar 21 10:30:29 2012 pierre ecormier
+** Last update Thu Mar 22 10:19:00 2012 pierre ecormier
 */
 
 #include	<stdlib.h>
@@ -89,9 +89,15 @@ int		replace_labels(t_asmline *line, t_asmline *lbls)
 		{
 		  it = lbls;
 		  while (it && my_strcmp(line->argv[i] + 1, it->argv[0]))
-		    it = it->next;
+		    {
+		      printf("%s %s\n", line->argv[i] + 1, it->argv[0]);
+		      it = it->next;
+		    }
 		  if (it)
-		    write_nb(line, &lsize, it->size - offset, arg_size(line->code, i, line->type[i]));
+		    {
+		      printf("=> %s %s\n", line->argv[i] + 1, it->argv[0]);
+		      write_nb(line, &lsize, it->size - offset, arg_size(line->code, i, line->type[i]));
+		    }
 		  else
 		    lsize += arg_size(line->code, i, line->type[i]);
 		}
