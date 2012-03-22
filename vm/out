@@ -66,300 +66,767 @@ and 0 0
 	n:2 val:1 
 nb:5 champ->pc(old):3079 champ->pc(new):3087
 and 1 0
-- LIVE 	 ARG[0] : 0
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
 
 nb:0 champ->pc(old):15 champ->pc(new):20
-arg[0]:0
-arg[1]:0
-live 0
-live!
-- LIVE 	 ARG[0] : 1
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
 
 nb:0 champ->pc(old):3087 champ->pc(new):3092
 live 1
 live!
-- ZJMP 	 ARG[0] : 251
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
 
-nb:8 champ->pc(old):20 champ->pc(new):23
-zjmp 251
-- ZJMP 	 ARG[0] : 251
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
 
-nb:8 champ->pc(old):3092 champ->pc(new):3095
-zjmp 251
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
-ERROR value nb /= [0;15], -1
-arg[0]:0
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+- ZJMP ZJMP >> i:21
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):20 champ->pc(new):20
+zjmp -5
+- ZJMP ZJMP >> i:3093
+e:255
+e:-5
+	 ARG[0] : -5
+
+nb:8 champ->pc(old):3092 champ->pc(new):3092
+zjmp -5
+- LIVE e:1
+e:0
+e:0
+e:0
+	 ARG[0] : 16777216
+
+nb:0 champ->pc(old):15 champ->pc(new):20
+live 16777216
+- LIVE e:0
+e:0
+e:0
+e:1
+	 ARG[0] : 1
+
+nb:0 champ->pc(old):3087 champ->pc(new):3092
+live 1
+live!
+1champ name : ../asm/champ/ex.cor ; live : 1
 Boucle
+END

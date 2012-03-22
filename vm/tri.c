@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Thu Mar 22 16:37:06 2012 clovis kyndt
+** Last update Thu Mar 22 17:06:37 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -98,18 +98,21 @@ void		print_my_arg(char *map, int *i, int arg[], char nb, char type[])
 void            print_my_arg_spec(char *map, int *i, int arg[], int s)
 {
   int           is;
+  short		oct_2;
 
   is = s;
-  while (s)
+  while (s > 0)
     {
       if (is == s)
 	{
-	  arg[0] = (char unsigned)map[*i];
+	  printf("e:%d\n", (unsigned char)map[*i]);
+	  arg[0] = map[*i];
 	}
       else
 	{
+          printf("e:%d\n", map[*i]);
 	  arg[0] = arg[0] << 8;
-	  arg[0] = (char unsigned)map[*i] | (unsigned char)arg[0];
+	  arg[0] = map[*i] | arg[0];
 	}
       *i = (*i + 1) % MEM_SIZE;
       s--;
@@ -123,7 +126,10 @@ void            print_my_arg_spec_eval(char *map, int *i, int arg[], char act)
   if (act == LIVE)
     print_my_arg_spec(map, i, arg, 4);
   else if (act == ZJMP)
-    print_my_arg_spec(map, i, arg, IND_SIZE);
+    {
+      printf("ZJMP >> i:%d\n", *i);
+      print_my_arg_spec(map, i, arg, IND_SIZE);
+    }
   else if (act == FORK || act == LFORK)
     print_my_arg_spec(map, i, arg, IND_SIZE);
 }
@@ -147,7 +153,8 @@ int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_
     }
   else 
     print_my_arg_spec_eval(arena->map, &ptr_i, arg, act);
-  champ->pc = ptr_i;
+  if (act != ZJMP || champ->carry == 0)
+    champ->pc = ptr_i;
   nb = (arena->map)[*i] - 1;
   if (nb < 0 || nb >= 16)
     printf("ERROR value nb /= [0;15], %d\n", nb);
