@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 13 17:10:01 2012 guillaume boell
-** Last update Wed Mar 21 09:44:59 2012 pierre ecormier
+** Last update Thu Mar 22 12:55:59 2012 pierre ecormier
 */
 
 #include <stdio.h>
@@ -66,9 +66,9 @@ void	get_command_args(char **words, char **argv)
   i = y = 0;
   while (i < 4 && words[i] && words[i][0])
     {
-      if (words[i][0] == LABEL_CHAR)
-	words[i] = words[i] + 1;
-      else if (words[i][0] == 'r' || words[i][0] == DIRECT_CHAR)
+      /* if (words[i][0] == LABEL_CHAR) */
+      /* 	words[i] = words[i] + 1; */
+      /* else  */if (words[i][0] == 'r' || words[i][0] == DIRECT_CHAR)
 	words[i] = words[i] + 1;
       argv[i] = words[i];
       i++;
