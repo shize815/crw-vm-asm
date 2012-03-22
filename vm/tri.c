@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Thu Mar 22 16:09:43 2012 clovis kyndt
+** Last update Thu Mar 22 16:23:30 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -146,7 +146,7 @@ int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_
     }
   else 
     print_my_arg_spec_eval(arena->map, &ptr_i, arg, act);
-  champ->pc = ptr_i;
+  champ->pc = ptr_i + 1;
   nb = (arena->map)[*i] - 1;
   if (nb < 0 || nb >= 16)
     printf("ERROR value nb /= [0;15], %d\n", nb);
