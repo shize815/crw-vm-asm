@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Thu Mar 22 17:06:37 2012 clovis kyndt
+** Last update Thu Mar 22 17:51:45 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -345,6 +345,7 @@ void		init_live(t_champ *champ)
 {
   t_champ	*tmp;
 
+  tmp = champ;
   while (tmp != NULL)
     {
       tmp->nb_live = 0;
@@ -360,7 +361,7 @@ void		apply_search(t_arena *arena, t_args_events *args)
 
   init_fct_tab(act_fct);
   cycle_m = arena->cycle_to_die;
-  while (champ_count(arena->champs) > 1)
+  while (champ_count(arena->champs) > 0)
     {
       cycle = 0;
       arena->nb_live = 0;
@@ -373,7 +374,7 @@ void		apply_search(t_arena *arena, t_args_events *args)
 	}
       if (arena->nb_live >= NBR_LIVE)
 	arena->cycle_to_die -= CYCLE_DELTA;
-      arena->champs = kill_champ(arena->champs);
+      /*      arena->champs = kill_champ(arena->champs); */
       puts("Boucle");
     }
   puts("END");
