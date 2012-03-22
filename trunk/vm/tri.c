@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Thu Mar 22 13:07:39 2012 clovis kyndt
+** Last update Thu Mar 22 13:28:14 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -43,7 +43,7 @@ void		print_my_arg(char *map, int *i, int arg[], char nb, char type[])
   int		s;
   int		is;
 
-  n  = 0;
+  n = 0;
   while (nb > 0 && n < 4)
     {
       s = 0;
@@ -66,6 +66,8 @@ void		print_my_arg(char *map, int *i, int arg[], char nb, char type[])
 	    }
 	  s--;
 	}
+      printf("n:%d val:%d \n", n, arg[n]);
+      n++;
       nb--;
     }
   arg[n] = '\0';
@@ -124,6 +126,16 @@ int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_
   champ->pc = ptr_i;
   nb = (arena->map)[*i] - 1;
   printf("nb:%d champ->pc(old):%d champ->pc(new):%d\n", nb, *i, champ->pc);
+  /* DEBUG */
+  int		d = 0;
+  while (arg[d] == '\0' && d < 4)
+    {
+      if (type[d] != '\0')
+	printf("type[%d]:%d ", d, type[d]);
+      printf("arg[%d]:%d\n", d, arg[d]);
+      d++;
+    }
+  /* END */
   if (nb < 16 && nb >= 0)
     (act_fct[nb])(arena, champ, type, arg);
   return (0);
@@ -165,37 +177,37 @@ int		dec_type(char c)
 {
   /* DEBUG */
   if (c == LIVE)
-    printf("LIVE = ");
+    printf("LIVE ");
   else if (c == LD)
-    printf("LD = \n");
+    printf("LD ");
   else if (c == ST)
-    printf("ST = \n");
+    printf("ST ");
   else if (c == ADD)
-    printf("ADD = \n");
+    printf("ADD ");
   else if (c == SUB)
-    printf("SUB = \n");
+    printf("SUB ");
   else if (c == AND)
-    printf("AND = \n");
+    printf("AND ");
   else if (c == OR)
-    printf("OR = \n");
+    printf("OR ");
   else if (c == XOR)
-    printf("XOR = \n");
+    printf("XOR ");
   else if (c == ZJMP)
-    printf("ZJMP = \n");
+    printf("ZJMP ");
   else if (c == LDI)
-    printf("LDI = \n");
+    printf("LDI ");
   else if (c == STI)
-    printf("STI = \n");
+    printf("STI ");
   else if (c == FORK)
-    printf("FORK = \n");
+    printf("FORK ");
   else if (c == LLD)
-    printf("LLD = \n");
+    printf("LLD ");
   else if (c == LLDI)
-    printf("LLDI = \n");
+    printf("LLDI ");
   else if (c == LFORK)
-    printf("LFORK = \n");
+    printf("LFORK ");
   else if (c == AFF)
-    printf("AFF = \n");
+    printf("AFF ");
   /* END */
   if (c == LIVE || c == ZJMP || c == FORK || c == LFORK)
     return (0);
