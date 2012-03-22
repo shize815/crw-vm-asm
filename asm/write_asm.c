@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 17:21:11 2012 pierre ecormier
-** Last update Thu Mar 22 10:19:00 2012 pierre ecormier
+** Last update Thu Mar 22 13:07:35 2012 pierre ecormier
 */
 
 #include	<stdlib.h>
@@ -51,19 +51,19 @@ void		write_nb(t_asmline *line, int *i, int nb, int size)
 
 int		arg_size(int code, int offset, int type)
 {
-  if (code == 9)
-    return (IND_SIZE);
-  if (code == 0x0b && offset > 0 && type != T_REG)
+  if (code == 9 || code == 0x0c || code == 0x0F)
     return (IND_SIZE);
   if (code == 0x02 && offset == 0 && type == T_LAB)
     return (DIR_SIZE);
   if (code == 0x0a && offset < 2 && type != T_REG)
     return (IND_SIZE);
+  if (code == 0x0b && offset > 0 && type != T_REG)
+    return (IND_SIZE);
   if (type == T_LAB || type == T_IND)
     return (IND_SIZE);
   if (type == T_DIR)
     return (DIR_SIZE);
-  return (1);
+  return (REG_SIZE);
 }
 
 int		replace_labels(t_asmline *line, t_asmline *lbls)
@@ -85,7 +85,7 @@ int		replace_labels(t_asmline *line, t_asmline *lbls)
 	    lsize = 0;
 	  while (++i < 4 && line->type[i] != 0)
 	    {
-	      if (line->type[i] == T_LAB)
+	      if (line->type[i] == T_LAB || line->argv[i][0] == LABEL_CHAR)
 		{
 		  it = lbls;
 		  while (it && my_strcmp(line->argv[i] + 1, it->argv[0]))
@@ -145,9 +145,11 @@ int		write_asm(t_asmline *line, char *path)
 	  i = -1;
 	  while (++i < MAX_ARGS_NUMBER && line->type[i] != 0)
 	    {
+	      printf("%s(%d) ", line->argv[i], line->type[i]);
 	      size = arg_size(line->code, i, line->type[i]);
 	      write_nb(line, &(line->size), my_getnbr(line->argv[i]), size);
 	    }
+	  printf("\n");
 	  pos += line->size + 1;
 	}
       line = next;

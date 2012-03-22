@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Wed Feb 15 11:15:45 2012 pierre ecormier
-** Last update Thu Mar 22 10:09:33 2012 pierre ecormier
+** Last update Thu Mar 22 12:45:06 2012 pierre ecormier
 */
 
 #include	<sys/types.h>
@@ -44,7 +44,7 @@ void		write_header(char *header[2], int size, int fd)
 
   write(fd, "\0\xea\x83\xf3", 4);
   i = -1;
-  while (header[1] && ++i < 132 && header[1][i] != '\0');
+  while (++i < 132 && header[1] && header[1][i] != '\0');
   if (header[1])
     write(fd, header[1], i);
   while (i++ < 132)
@@ -56,7 +56,7 @@ void		write_header(char *header[2], int size, int fd)
       write(fd, &c, 1);
     }
   i = -1;
-  while (header[0] && ++i < 2052 && header[0][i] != '\0');
+  while (++i < 2052 && header[0] && header[0][i] != '\0');
   if (header[0])
     write(fd, header[0], i);
   while (i++ < 2052)
