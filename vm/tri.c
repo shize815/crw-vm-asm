@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Thu Mar 22 16:23:30 2012 clovis kyndt
+** Last update Thu Mar 22 16:37:06 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -78,7 +78,6 @@ void		print_my_arg(char *map, int *i, int arg[], char nb, char type[])
       is = s;
       while (s)
 	{
-          *i = (*i + 1) % MEM_SIZE;
 	  if (is == s)
 	    arg[n] = map[*i];
 	  else
@@ -86,6 +85,7 @@ void		print_my_arg(char *map, int *i, int arg[], char nb, char type[])
 	      arg[n] = (unsigned char)arg[n] << 8;
 	      arg[n] = (unsigned char)map[*i] | (unsigned char)arg[n];
 	    }
+          *i = (*i + 1) % MEM_SIZE;
 	  s--;
 	}
       printf("\tn:%d val:%d \n", n, arg[n]);
@@ -142,11 +142,12 @@ int		dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index, void (*act_
       nb = (arena->map)[ptr_i % MEM_SIZE];
       nb = select_oct(type, nb);
       type_exp(act, type);
+      ptr_i++;
       print_my_arg(arena->map, &ptr_i, arg, nb, type);
     }
   else 
     print_my_arg_spec_eval(arena->map, &ptr_i, arg, act);
-  champ->pc = ptr_i + 1;
+  champ->pc = ptr_i;
   nb = (arena->map)[*i] - 1;
   if (nb < 0 || nb >= 16)
     printf("ERROR value nb /= [0;15], %d\n", nb);
