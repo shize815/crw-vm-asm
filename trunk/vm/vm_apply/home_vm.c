@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Fri Mar 23 00:36:46 2012 clovis kyndt
+** Last update Fri Mar 23 10:49:22 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -55,7 +55,6 @@ int             cycle_action(t_arena *arena, void (*act_fct[16])(t_arena *arena,
   while (champ != NULL)
     {
       i = champ->pc;
-      printf("PC:%d\n", arena->champs->pc);
       time_act = time_action(mem[i]);
       if ((champ->cycle + time_act) <= cycle)
         {
@@ -63,11 +62,8 @@ int             cycle_action(t_arena *arena, void (*act_fct[16])(t_arena *arena,
           champ->pc = dedi_no_tab(champ, arena, &i, type, act_fct, mem[i]);
           champ->cycle = cycle;
         }
-      printf("PC::%d\n", arena->champs->pc);
       champ = champ->next;
-      printf("PC::%d\n", arena->champs->pc);
     }
-  printf("PC:::%d\n", arena->champs->pc);
   return (0);
 }
 
@@ -86,10 +82,8 @@ void            home_vm(t_arena *arena, t_args_events *args)
       init_live(arena->champs);
       while (cycle < arena->cycle_to_die && arena->nb_live < NBR_LIVE)
         {
-	  printf("PC>%d\n", arena->champs->pc);
           do_refresh(args);
           cycle_action(arena, act_fct, cycle);
-	  printf("PC>>%d\n\n", arena->champs->pc);
           cycle++;
         }
       if (arena->nb_live >= NBR_LIVE)
