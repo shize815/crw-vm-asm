@@ -17,6 +17,15 @@ MY=	lib/get_next_line.c	\
 	lib/my_strdup.c		\
 	lib/my_str_to_wordtab.c
 
+APDIR=	vm_apply
+APSRC=	$(APDIR)/count_champs.c		\
+	$(APDIR)/home_vm.c		\
+	$(APDIR)/initialisation_app.c	\
+	$(APDIR)/kill_champ.c		\
+	$(APDIR)/print_commun.c		\
+	$(APDIR)/print_special.c	\
+	$(APDIR)/print_widget.c		\
+
 VMDIR=	vm_funcs
 VMSRC=	$(VMDIR)/live.c		\
 	$(VMDIR)/st_ld.c	\
@@ -31,8 +40,8 @@ SRC=	main.c			\
 	graphic.c		\
 	events.c		\
 	xappels.c		\
-	tri.c			\
 	$(VMSRC)		\
+	$(APSRC)		\
 	$(MY)
 
 OBJ=	$(SRC:.c=.o)
