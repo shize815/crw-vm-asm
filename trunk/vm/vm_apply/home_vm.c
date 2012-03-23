@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Fri Mar 23 12:22:49 2012 clovis kyndt
+** Last update Fri Mar 23 15:13:44 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -36,7 +36,7 @@ int             dedi_no_tab(t_champ *tmp, t_arena *arena, int *i, char index, vo
     (act_fct[nb])(arena, tmp, type, arg);
   if (act != ZJMP || tmp->carry == 0)
     tmp->pc = ptr_i;
-  /* printf("\tNAME:%s NAME:%s\n",  tmp->name, arena->champs->name);
+  printf("\tNAME:%s NAME:%s\n",  tmp->name, arena->champs->name);
   printf("\tPOSITION_OLD(%d) / POSITION_NEW(%d) / POSITION_NEW_CHA(%d) / nb : %d\n",*i, tmp->pc, arena->champs->pc, nb);
   /* WHATTTTTTTTT THEEEEEEEEEEEEE FUUUUUUUUUUUUUUUUUUUUCK */
   return (0);
