@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 22:01:01 2012 clovis kyndt
-** Last update Thu Mar 22 22:02:21 2012 clovis kyndt
+** Last update Fri Mar 23 15:28:08 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -49,5 +49,10 @@ void             type_exp(char c, char type[])
         type[1] = 4;
       if (type[2] != 1)
         type[2] = 4;
+    }
+  if (c == LDI)
+    {
+        type[0] = 4;
+        type[1] = 4;
     }
 }
