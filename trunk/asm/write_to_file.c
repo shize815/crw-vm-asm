@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Wed Feb 15 11:15:45 2012 pierre ecormier
-** Last update Thu Mar 22 12:45:06 2012 pierre ecormier
+** Last update Fri Mar 23 08:48:11 2012 pierre ecormier
 */
 
 #include	<sys/types.h>
@@ -17,7 +17,7 @@
 #include	"corewar.h"
 #include	"my.h"
 
-char		*get_path(char *old)
+static char	*get_path(char *old)
 {
   int		len;
   int		i;
@@ -37,7 +37,7 @@ char		*get_path(char *old)
   return (new);
 }
 
-void		write_header(char *header[2], int size, int fd)
+static void	write_header(char *header[2], int size, int fd)
 {
   int		i;
   char		c;

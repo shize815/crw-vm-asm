@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Sat Dec 10 14:15:12 2011 pierre ecormier
-** Last update Wed Feb 15 10:09:26 2012 pierre ecormier
+** Last update Thu Mar 22 18:33:27 2012 pierre ecormier
 */
 
 #include	<unistd.h>
@@ -41,7 +41,8 @@ int		push_asm_back(t_asmline **begin, t_asmline **end, t_asmline *elm)
   return (0);
 }
 
-int		replace_asm_list(t_asmline **rmbegin, t_asmline **replace, t_asmline *elm)
+int		replace_asm_list(t_asmline **rmbegin, t_asmline **replace,
+				 t_asmline *elm)
 {
   t_asmline	*it;
 
@@ -53,6 +54,5 @@ int		replace_asm_list(t_asmline **rmbegin, t_asmline **replace, t_asmline *elm)
   elm->next = *replace;
   *replace = elm;
   elm->argv[0][my_strlen(elm->argv[0]) - 1] = '\0';
-  /* printf("Label : %s\n", elm->argv[0]); */
   return (0);
 }
