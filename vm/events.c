@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Thu Mar 22 22:56:21 2012 clovis kyndt
+** Last update Fri Mar 23 16:42:25 2012 guillaume boell
 */
 #include <math.h>
 #include "corewar.h"
@@ -53,12 +53,52 @@ void	do_carre(t_args_events *args, int taille, t_pos *pos, t_col *color)
 
 void	print_hero(t_args_events *args)
 {
-  t_col	color;
+  /* t_col	color; */
 
-  args->hero_color.r += 3;
-  args->hero_color.g += 1;
-  args->hero_color.b += 2;
-  do_carre(args, 12,  &args->hero_pos, &args->hero_color);
+  /* args->hero_color.r += 3; */
+  /* args->hero_color.g += 1; */
+  /* args->hero_color.b += 2; */
+  /* do_carre(args, 12,  &args->hero_pos, &args->hero_color); */
+}
+
+int	get_pc_col(t_champ *champs, t_col *col, int i)
+{
+  t_col	c;
+
+  c.r = c.g = c.b = 0;
+  if (i == champs->pc)
+    c.r = 255;
+  if ((champs = champs->next) != NULL)
+    {
+      if (champs && i == champs->pc)
+	c.b = 255;
+      if ((champs = champs->next) != NULL)
+	{
+	  if (champs && i == champs->pc)
+	    c.g = 255;
+	  if ((champs = champs->next) != NULL)
+	    {
+	      if (champs && i == champs->pc)
+		c.g = c.b = 255;
+	    }
+	}
+    }
+  if (c.r == c.g == c.b == 0)
+    return (0);
+  col->r = c.r;
+  col->g = c.g;
+  col->b = c.b;
+  return (1);
+}
+
+void	get_color(t_col *col, int i, char val, t_arena *arena)
+{
+  if (!get_pc_col(arena->champs, col, i))
+    {
+      col->r = arena->map[i] * 10;
+      col->g = arena->map[i] * 10;
+      col->b = arena->map[i] * 10;
+    }
 }
 
 void	refresh(t_args_events *args)
@@ -78,9 +118,8 @@ void	refresh(t_args_events *args)
     {
       pos.x = (n * taille) % (LARG - taille);
       pos.y = ((i * taille) / (LARG - taille)) * taille;
-      color.r = color.g = color.b = args->arena->map[i] * 15;
-      if (args->arena->map[i])
-	do_carre(args, taille, &pos, &color);
+      get_color(&color, i, args->arena->map[i], args->arena);
+      do_carre(args, taille, &pos, &color);
       i++;
       n++;
       if (LARG / taille <= n)
