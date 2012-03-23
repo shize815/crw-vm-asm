@@ -5,7 +5,7 @@
 ## Login   <ecormi_p@epitech.net>
 ## 
 ## Started on  Mon Oct 24 16:56:40 2011 pierre ecormier
-## Last update Sun Feb 19 20:11:41 2012 pierre ecormier
+## Last update Fri Mar 23 09:27:31 2012 pierre ecormier
 ##
 
 NAME=	asm
@@ -20,8 +20,10 @@ MY=	lib/get_next_line.c	\
 
 SRC=	main.c			\
 	parsing.c		\
+	verif.c			\
 	op.c			\
 	write_asm.c		\
+	asm_utils.c		\
 	write_to_file.c		\
 	$(MY)
 

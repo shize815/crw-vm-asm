@@ -1,0 +1,1 @@
+cd ~/crw-vm-asm/asm/champ/src/cor ; find . -name "*.cor" -exec diff {} ../{} \; ; cd -

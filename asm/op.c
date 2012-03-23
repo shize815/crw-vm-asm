@@ -5,7 +5,7 @@
 ** Login   <astek@epitech.net>
 **
 ** Started on  Mon Mar 30 11:14:31 2009 Astek
-** Last update Wed Feb 15 16:14:28 2012 pierre ecormier
+** Last update Thu Mar 22 18:34:29 2012 pierre ecormier
 */
 
 /*
@@ -34,7 +34,8 @@ op_t    op_tab[] =
      "store index"},
     {"fork", 1, {T_DIR}, 12, 800, "fork"},
     {"lld", 2, {T_DIR | T_IND, T_REG}, 13, 10, "long load"},
-    {"lldi", 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}, 14, 50, "long load index"},
+    {"lldi", 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}, 14, 50,
+     "long load index"},
     {"lfork", 1, {T_DIR}, 15, 1000, "long fork"},
     {"aff", 1, {T_REG}, 16, 2, "aff"},
     {0, 0, {0}, 0, 0, 0}
