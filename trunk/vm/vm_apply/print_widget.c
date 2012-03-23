@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 22:01:01 2012 clovis kyndt
-** Last update Fri Mar 23 15:28:08 2012 clovis kyndt
+** Last update Fri Mar 23 15:30:16 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -41,16 +41,16 @@ void             type_exp(char c, char type[])
 {
   if (c == LD)
     type[1] = 1;
-  if (c == ZJMP)
+  else if (c == ZJMP)
     type[0] = 2;
-  if (c == STI)
+  else if (c == STI)
     {
       if (type[1] != 1)
         type[1] = 4;
       if (type[2] != 1)
         type[2] = 4;
     }
-  if (c == LDI)
+  else if (c == LDI)
     {
         type[0] = 4;
         type[1] = 4;
