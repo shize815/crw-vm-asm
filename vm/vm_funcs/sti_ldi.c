@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Tue Feb 21 15:33:22 2012 pierre ecormier
-** Last update Fri Mar 23 15:30:55 2012 pierre ecormier
+** Last update Fri Mar 23 15:37:26 2012 pierre ecormier
 */
 
 #include	<stdio.h>
@@ -30,13 +30,14 @@ void		sti(t_arena *arena, t_champ *champ, char type[4], int argv[4])
 void		ldi(t_arena *arena, t_champ *champ, char type[4], int argv[4])
 {
   short		*ad;
+  int		i;
   unsigned int	*addr;
 
   if (REG_VALID(argv[2]))
     printf("ldi %d\n", champ->r[argv[2]]);
   ad = (short *) &(arena->map[VM_BORD(champ->pc + (*argv % IDX_MOD))]);
-  *addr = *ad + argv[1];
-  addr = (unsigned int *) &(arena->map[VM_BORD(champ->pc + (*addr % IDX_MOD))]);
+  i = *ad + argv[1];
+  addr = (unsigned int *) &(arena->map[VM_BORD(champ->pc + (i % IDX_MOD))]);
   if (REG_VALID(argv[2]))
     champ->r[argv[2]] = *addr;
   champ->carry = REG_VALID(argv[2]) ? (champ->r[argv[2]] == 0) : 0;
@@ -46,13 +47,14 @@ void		ldi(t_arena *arena, t_champ *champ, char type[4], int argv[4])
 void		lldi(t_arena *arena, t_champ *champ, char type[4], int argv[4])
 {
   short		*ad;
+  int		i;
   unsigned int	*addr;
 
   if (REG_VALID(argv[2]))
     printf("ldi %d\n", champ->r[argv[2]]);
-  ad = (unsigned short *) &(arena->map[VM_BORD(champ->pc + (*argv))]);
-  *addr = *ad + argv[1];
-  addr = (unsigned int *) &(arena->map[VM_BORD(champ->pc + (*addr))]);
+  ad = (short *) &(arena->map[VM_BORD(champ->pc + *argv)]);
+  i = *ad + argv[1];
+  addr = (unsigned int *) &(arena->map[VM_BORD(champ->pc + i)]);
   if (REG_VALID(argv[2]))
     champ->r[argv[2]] = *addr;
   champ->carry = REG_VALID(argv[2]) ? (champ->r[argv[2]] == 0) : 0;
