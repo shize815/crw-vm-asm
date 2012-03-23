@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Fri Mar 23 10:49:22 2012 clovis kyndt
+** Last update Fri Mar 23 12:22:49 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -20,7 +20,7 @@ int             dedi_no_tab(t_champ *tmp, t_arena *arena, int *i, char index, vo
   int           ptr_i;
 
   ptr_i = (*i + 1) % MEM_SIZE;
-  printf(">");
+  /*  printf(">");*/
   if (index > 0)
     {
       nb = (arena->map)[ptr_i % MEM_SIZE];
@@ -36,10 +36,10 @@ int             dedi_no_tab(t_champ *tmp, t_arena *arena, int *i, char index, vo
     (act_fct[nb])(arena, tmp, type, arg);
   if (act != ZJMP || tmp->carry == 0)
     tmp->pc = ptr_i;
-  printf("NAME:%s NAME:%s\n",  tmp->name, arena->champs->name);
+  /* printf("\tNAME:%s NAME:%s\n",  tmp->name, arena->champs->name);
   printf("\tPOSITION_OLD(%d) / POSITION_NEW(%d) / POSITION_NEW_CHA(%d) / nb : %d\n",*i, tmp->pc, arena->champs->pc, nb);
   /* WHATTTTTTTTT THEEEEEEEEEEEEE FUUUUUUUUUUUUUUUUUUUUCK */
-  return (ptr_i);
+  return (0);
 }
 
 int             cycle_action(t_arena *arena, void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]), int cycle)
@@ -59,7 +59,7 @@ int             cycle_action(t_arena *arena, void (*act_fct[16])(t_arena *arena,
       if ((champ->cycle + time_act) <= cycle)
         {
           type = decript_type(mem[i]);
-          champ->pc = dedi_no_tab(champ, arena, &i, type, act_fct, mem[i]);
+	  dedi_no_tab(champ, arena, &i, type, act_fct, mem[i]);
           champ->cycle = cycle;
         }
       champ = champ->next;

@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Tue Feb 21 15:33:22 2012 pierre ecormier
-** Last update Fri Mar 23 10:55:41 2012 pierre ecormier
+** Last update Fri Mar 23 11:27:31 2012 clovis kyndt
 */
 
 #include	<stdlib.h>
@@ -27,6 +27,7 @@ void		fork(t_arena *arena, t_champ *champ, char type[4], int argv[4])
   elm->name[0] = ++i + 48;
   /* elm->comment = my_strdup(champ->comment); */
   elm->pc = VM_BORD(champ->pc + (argv[0] % IDX_MOD));
+  printf("elm->pc : %d\n", elm->pc);
   arena->champs = elm;
   type = type;
 }
