@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Fri Mar 23 15:13:44 2012 clovis kyndt
+** Last update Fri Mar 23 16:43:11 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -34,10 +34,12 @@ int             dedi_no_tab(t_champ *tmp, t_arena *arena, int *i, char index, vo
   nb = (arena->map)[*i] - 1;
   if (nb < 16 && nb >= 0)
     (act_fct[nb])(arena, tmp, type, arg);
+  else
+    {
+      printf("<RIEN>\n");
+    }
   if (act != ZJMP || tmp->carry == 0)
     tmp->pc = ptr_i;
-  printf("\tNAME:%s NAME:%s\n",  tmp->name, arena->champs->name);
-  printf("\tPOSITION_OLD(%d) / POSITION_NEW(%d) / POSITION_NEW_CHA(%d) / nb : %d\n",*i, tmp->pc, arena->champs->pc, nb);
   /* WHATTTTTTTTT THEEEEEEEEEEEEE FUUUUUUUUUUUUUUUUUUUUCK */
   return (0);
 }
@@ -82,8 +84,8 @@ void            home_vm(t_arena *arena, t_args_events *args)
       init_live(arena->champs);
       while (cycle < arena->cycle_to_die && arena->nb_live < NBR_LIVE)
         {
-          do_refresh(args);
           cycle_action(arena, act_fct, cycle);
+          do_refresh(args);
           cycle++;
         }
       if (arena->nb_live >= NBR_LIVE)
