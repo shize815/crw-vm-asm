@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Tue Feb 21 15:33:22 2012 pierre ecormier
-** Last update Thu Mar 22 17:24:15 2012 pierre ecormier
+** Last update Fri Mar 23 10:55:41 2012 pierre ecormier
 */
 
 #include	<stdlib.h>
@@ -16,13 +16,15 @@
 
 void		fork(t_arena *arena, t_champ *champ, char type[4], int argv[4])
 {
+  static int	i;
   t_champ	*elm;
 
   if ((elm = malloc(sizeof(*elm))) == NULL)
     exit(1);
   *elm = *champ;
   elm->next = arena->champs;
-  /* elm->name = my_strdup(champ->name); */
+  elm->name = my_strdup(" ");
+  elm->name[0] = ++i + 48;
   /* elm->comment = my_strdup(champ->comment); */
   elm->pc = VM_BORD(champ->pc + (argv[0] % IDX_MOD));
   arena->champs = elm;
