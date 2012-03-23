@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Wed Dec 21 21:32:49 2011 guillaume boell
-** Last update Tue Mar 20 15:57:32 2012 guillaume boell
+** Last update Fri Mar 23 17:10:19 2012 guillaume boell
 */
 void	set_pix(char r, char g, char b, char *img_data)
 {
