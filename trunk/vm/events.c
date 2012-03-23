@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Wed Mar 21 16:37:47 2012 guillaume boell
+** Last update Thu Mar 22 22:56:21 2012 clovis kyndt
 */
 #include <math.h>
 #include "corewar.h"
@@ -18,7 +18,7 @@ int	gere_expose(t_args_events *args)
 
   didonce = 0;
   if (!didonce)
-    apply_search(args->arena, args);
+    home_vm(args->arena, args);
   didonce = 1;
   mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
   return (0);

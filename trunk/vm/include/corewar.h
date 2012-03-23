@@ -5,13 +5,15 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Thu Mar 22 00:09:22 2012 clovis kyndt
+** Last update Thu Mar 22 22:22:42 2012 clovis kyndt
 */
 
 #ifndef			__COREWAR_H__
 #define			__COREWAR_H__
 
 #include		<stdlib.h>
+#include		<stdio.h>  /* A SUPP !!!!*/
+#include		<string.h> /* A SUPP !!!!*/
 
 #define			LIVE	1
 #define			LD	2
@@ -90,5 +92,38 @@ void			*xmalloc(size_t size);
 int			gere_expose(t_args_events *args);
 int			key_hook(int keycode, t_args_events *args);
 void			do_refresh(t_args_events *args);
+
+/***			DIR:	vm_apply	        */
+/*			FILE:	count_champs.c		*/
+int			champ_count(t_champ *champ);
+
+/*                      FILE:	home_vm.c		*/
+int			dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index,
+				    void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]), unsigned char act);
+int			cycle_action(t_arena *arena,
+				     void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]), int cycle);
+void			home_vm(t_arena *arena, t_args_events *args);
+
+/*			FILE:	initialisation_app.c	*/
+void			init_time_tab(int time_tab[]);
+int			time_action(char c);
+int			decript_type(char c);
+void			init_fct_tab(void  (*act_fct[])(t_arena *arena, t_champ *champ, char type[4], int argv[4]));
+void			init_live(t_champ *champ);
+
+/*			FILE:	kill_champ.c		*/
+t_champ			*kill_my_select_champ(t_champ *champs);
+void			kill_champ(t_arena *arena);
+
+/*			FILE:	print_commun.c		*/
+void			print_my_arg(char *map, int *i, int arg[], char nb, char type[]);
+
+/*                      FILE:	print_special.c		*/
+void			print_my_arg_spec(char *map, int *i, int arg[], int s);
+void			print_my_arg_spec_eval(char *map, int *i, int arg[], char act);
+
+/*                      FILE:	print_commun.c          */
+char			select_oct(char tb[], unsigned char c);
+void			type_exp(char c, char type[]);
 
 #endif

@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 15 13:48:52 2012 clovis kyndt
-** Last update Thu Mar 22 17:51:45 2012 clovis kyndt
+** Last update Thu Mar 22 21:34:41 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -339,7 +339,6 @@ t_champ		*kill_champ(t_champ *champs)
     }
   return (champs);
 }
-
 
 void		init_live(t_champ *champ)
 {
