@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Tue Feb 21 15:33:22 2012 pierre ecormier
-** Last update Fri Mar 23 11:27:31 2012 clovis kyndt
+** Last update Sat Mar 24 17:50:51 2012 pierre ecormier
 */
 
 #include	<stdlib.h>
@@ -21,13 +21,14 @@ void		fork(t_arena *arena, t_champ *champ, char type[4], int argv[4])
 
   if ((elm = malloc(sizeof(*elm))) == NULL)
     exit(1);
+  printf("fork (%d)\n", argv[0]);
   *elm = *champ;
   elm->next = arena->champs;
+  elm->num = ++arena->nb_process;
   elm->name = my_strdup(" ");
   elm->name[0] = ++i + 48;
   /* elm->comment = my_strdup(champ->comment); */
   elm->pc = VM_BORD(champ->pc + (argv[0] % IDX_MOD));
-  printf("elm->pc : %d\n", elm->pc);
   arena->champs = elm;
   type = type;
 }
@@ -38,12 +39,14 @@ void		lfork(t_arena *arena, t_champ *champ, char type[4], int argv[4])
 
   if ((elm = malloc(sizeof(*elm))) == NULL)
     exit(1);
+  printf("lfork (%d)\n", argv[0]);
   champ->carry = 0;
   *elm = *champ;
   elm->next = arena->champs;
+  elm->num = ++arena->nb_process;
   /* elm->name = my_strdup(champ->name); */
   /* elm->comment = my_strdup(champ->comment); */
-  elm->pc = champ->pc + argv[0];
+  elm->pc = VM_BORD(champ->pc + argv[0]);
   arena->champs = elm;
   type = type;
 }
