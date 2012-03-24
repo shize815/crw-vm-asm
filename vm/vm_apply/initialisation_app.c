@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:45:58 2012 clovis kyndt
-** Last update Fri Mar 23 17:16:15 2012 clovis kyndt
+** Last update Sat Mar 24 16:47:03 2012 pierre ecormier
 */
 
 #include        "op.h"
@@ -49,6 +49,7 @@ int             time_action(char c)
 int             decript_type(char c)
 {
   /* DEBUG */
+  /*
   if (c == LIVE)
     printf("- LIVE ");
   else if (c == LD)
@@ -81,6 +82,7 @@ int             decript_type(char c)
     printf("- LFORK ");
   else if (c == AFF)
     printf("- AFF ");
+  */
   /* END */
   if (c == LIVE || c == ZJMP || c == FORK || c == LFORK)
     return (0);

@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Sat Mar 24 12:47:35 2012 clovis kyndt
+** Last update Sat Mar 24 17:24:39 2012 pierre ecormier
 */
 
 #include        "op.h"
@@ -18,6 +18,7 @@ int             dedi_no_tab(t_champ *tmp, t_arena *arena, int *i, char index, vo
   char          type[4];
   int           nb;
   int           ptr_i;
+  int		o = 0;
 
   ptr_i = (*i + 1) % MEM_SIZE;
   /*  printf(">");*/
@@ -33,19 +34,19 @@ int             dedi_no_tab(t_champ *tmp, t_arena *arena, int *i, char index, vo
     print_my_arg_spec_eval(arena->map, &ptr_i, arg, act);
   nb = (arena->map)[*i] - 1;
   if (nb < 16 && nb >= 0)
-    (act_fct[nb])(arena, tmp, type, arg);
-  else
     {
-      printf("<RIEN>");
+      printf("[%06d %06d] ", tmp->pc, tmp->num);
+      (act_fct[nb])(arena, tmp, type, arg);
     }
-  printf("Name:%s  | last_champ: %s ", tmp->name, arena->champs->name);
-  int		o = 0;
+  else
+    printf("<RIEN>");
+  /* printf("Name:%s  | last_champ: %s ", tmp->name, arena->champs->name); */
   while (arg[o] && o < 4)
     {
-      printf(" argv[%d] : %d ;", o, arg[o]);
+      /* printf(" argv[%d] : %d ;", o, arg[o]); */
       o++;
     }
-  printf("\n");
+  /* printf("\n"); */
   if (act != ZJMP || tmp->carry == 0)
     tmp->pc = ptr_i;
   /* WHATTTTTTTTT THEEEEEEEEEEEEE FUUUUUUUUUUUUUUUUUUUUCK */

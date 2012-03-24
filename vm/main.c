@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 20 16:53:47 2012 guillaume boell
-** Last update Thu Mar 22 14:18:00 2012 pierre ecormier
+** Last update Sat Mar 24 17:19:42 2012 pierre ecormier
 */
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -35,32 +35,6 @@ int		get_arg_nbr(char c, char **argv, int wait_until)
     }
   return (-1);
 }
-
-/* int		get_nbr(char **argv, int wait_until) */
-/* { */
-/*   int		i; */
-/*   int		nb; */
-
-/*   nb = i = 0; */
-/*   i++; */
-/*   while (argv[i]) */
-/*     { */
-/*       if (argv[i][0] != '-') */
-/* 	{ */
-/* 	  if (nb >= wait_until) */
-/* 	    { */
-/* 	      if (argv[i + 1]) */
-/* 		{ */
-/* 		  printf("ret %d\n", nb); */
-/* 		  return (nb); */
-/* 		} */
-/* 	    } */
-/* 	  nb++; */
-/* 	} */
-/*       i++; */
-/*     } */
-/*   return (3); */
-/* } */
 
 void		rempl_tabl(int *tab, char c, char **argv)
 {
@@ -245,6 +219,8 @@ int		main(int argc, char **argv)
   arena.cycle_max = cycles_max;
   arena.cycle_to_die = CYCLE_TO_DIE;
   arena.nb_live = arena.nb_process = 0;
+  while (start_champ && (start_champ = start_champ->next))
+    arena.nb_process++;
   arena.map = map;
   aff_mem(map);
   launch_game(&arena);
