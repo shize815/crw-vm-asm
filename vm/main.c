@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 20 16:53:47 2012 guillaume boell
-** Last update Sat Mar 24 17:19:42 2012 pierre ecormier
+** Last update Sat Mar 24 19:25:32 2012 pierre ecormier
 */
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -94,7 +94,7 @@ t_champ		*gen_champs(t_champ *start, int *tab, char **argv)
 	tab[i] = get_valid_id(tab);
       start->num = tab[i];
       start->nb_live = start->last_live = start->timer = 0;
-      y = -1;
+      start->parent = y = -1;
       while (++y < REG_NUMBER)
 	start->r[y] = 0;
       start->r[1] = start->num;
