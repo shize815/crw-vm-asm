@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:59:06 2012 clovis kyndt
-** Last update Fri Mar 23 12:00:42 2012 clovis kyndt
+** Last update Sat Mar 24 12:58:19 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -37,11 +37,11 @@ void            print_my_arg(char *map, int *i, int arg[], char nb, char type[])
 	  while (s)
 	    {
 	      if (is == s)
-		d = map[*i];
+		d = (unsigned char)map[*i];
 	      else
 		{
 		  d = d << 8;
-		  d = map[*i] | d;
+		  d = (unsigned char)map[*i] | d;
 		}
 	      *i = (*i + 1) % MEM_SIZE;
 	      s--;
@@ -53,11 +53,11 @@ void            print_my_arg(char *map, int *i, int arg[], char nb, char type[])
 	  while (s)
 	    {
 	      if (is == s)
-		y = map[*i];
+		y = (unsigned char)map[*i];
 	      else
 		{
 		  y = y << 8;
-		  y = map[*i] | y;
+		  y = (unsigned char)map[*i] | y;
 		}
 	      *i = (*i + 1) % MEM_SIZE;
 	      s--;
@@ -69,11 +69,11 @@ void            print_my_arg(char *map, int *i, int arg[], char nb, char type[])
           while (s)
             {
               if (is == s)
-                u = map[*i];
+                u = (unsigned char)map[*i];
               else
                 {
                   u = u << 8;
-                  u = map[*i] | u;
+                  u = (unsigned char)map[*i] | u;
                 }
               *i = (*i + 1) % MEM_SIZE;
               s--;
