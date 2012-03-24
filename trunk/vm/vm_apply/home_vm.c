@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Fri Mar 23 16:43:11 2012 clovis kyndt
+** Last update Sat Mar 24 12:47:35 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -36,8 +36,16 @@ int             dedi_no_tab(t_champ *tmp, t_arena *arena, int *i, char index, vo
     (act_fct[nb])(arena, tmp, type, arg);
   else
     {
-      printf("<RIEN>\n");
+      printf("<RIEN>");
     }
+  printf("Name:%s  | last_champ: %s ", tmp->name, arena->champs->name);
+  int		o = 0;
+  while (arg[o] && o < 4)
+    {
+      printf(" argv[%d] : %d ;", o, arg[o]);
+      o++;
+    }
+  printf("\n");
   if (act != ZJMP || tmp->carry == 0)
     tmp->pc = ptr_i;
   /* WHATTTTTTTTT THEEEEEEEEEEEEE FUUUUUUUUUUUUUUUUUUUUCK */
@@ -58,12 +66,16 @@ int             cycle_action(t_arena *arena, void (*act_fct[16])(t_arena *arena,
     {
       i = champ->pc;
       time_act = time_action(mem[i]);
-      if ((champ->cycle + time_act) <= cycle)
+      if ((champ->cycle + time_act) <= cycle && mem[i] >= 0 && mem[i] < 16)
         {
           type = decript_type(mem[i]);
 	  dedi_no_tab(champ, arena, &i, type, act_fct, mem[i]);
           champ->cycle = cycle;
         }
+      else if ((champ->cycle + time_act) <= cycle && (mem[i] < 0 || mem[i] >= 16))
+	{
+	  printf("Error Mem[i],%d\n", mem[i]);
+	}
       champ = champ->next;
     }
   return (0);
@@ -85,7 +97,7 @@ void            home_vm(t_arena *arena, t_args_events *args)
       while (cycle < arena->cycle_to_die && arena->nb_live < NBR_LIVE)
         {
           cycle_action(arena, act_fct, cycle);
-          do_refresh(args);
+	  /*          do_refresh(args);*/
           cycle++;
         }
       if (arena->nb_live >= NBR_LIVE)
