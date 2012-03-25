@@ -1,11 +1,12 @@
 ##
-## Makefile for corewar-vm in /home/boell_g/crw-vm-asm/vm
+## Makefile for corewar in /home/ecormi_p/crw-vm-asm/vm
 ## 
-## Made by guillaume boell
-## Login   <boell_g@epitech.net>
+## Made by pierre ecormier
+## Login   <ecormi_p@epitech.net>
 ## 
-## Started on  Tue Mar 20 15:37:42 2012 guillaume boell
-
+## Started on  Sun Mar 25 18:46:25 2012 pierre ecormier
+## Last update Sun Mar 25 18:46:30 2012 pierre ecormier
+##
 
 NAME=	corewar
 
