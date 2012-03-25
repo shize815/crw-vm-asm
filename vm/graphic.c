@@ -5,11 +5,18 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Tue Mar 20 15:27:18 2012 guillaume boell
-** Last update Sun Mar 25 16:15:36 2012 guillaume boell
+** Last update Sun Mar 25 16:32:49 2012 guillaume boell
 */
 #include <stdlib.h>
 #include "minilibx/mlx.h"
 #include "corewar.h"
+
+int		do_refresh(t_args_events *args)
+{
+  refresh(args);
+  mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
+  return (0);
+}
 
 void		launch_game(t_arena *arena)
 {
@@ -40,17 +47,11 @@ void		launch_game(t_arena *arena)
 	  }
 }
 
-void	do_refresh(t_args_events *args)
+void		do_carre(t_args_events *args, int taille, t_pos *pos, t_col *color)
 {
-  refresh(args);
-  mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
-}
-
-void	do_carre(t_args_events *args, int taille, t_pos *pos, t_col *color)
-{
-  char	*i;
-  int	c_x;
-  int	c_y;
+  char		*i;
+  int		c_x;
+  int		c_y;
 
   i = args->img_data + ((pos->x + (pos->y * LARG)) * 4);
   c_x = c_y = 0;

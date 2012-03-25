@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 20 16:53:47 2012 guillaume boell
-** Last update Sun Mar 25 16:18:52 2012 guillaume boell
+** Last update Sun Mar 25 16:29:35 2012 guillaume boell
 */
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -124,7 +124,7 @@ int		main(int argc, char **argv)
   arena.champs = start_champ;
   arena.cycle_max = cycles_max;
   arena.cycle_to_die = CYCLE_TO_DIE;
-  arena.nb_live = arena.nb_process = 0;
+  arena.nb_live = arena.nb_process = argc = 0;
   while (start_champ && (start_champ = start_champ->next))
     arena.nb_process++;
   arena.map = map;

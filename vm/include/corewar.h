@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Sun Mar 25 16:24:33 2012 guillaume boell
+** Last update Sun Mar 25 16:41:26 2012 guillaume boell
 */
 
 #ifndef			__COREWAR_H__
@@ -59,7 +59,7 @@ typedef	struct		s_arena
   int			cycle_max;
   int			nb_live;
   int			nb_process;
-  unsigned char		*map;
+  char			*map;
 }			t_arena;
 
 typedef struct          s_pos
@@ -90,7 +90,7 @@ void			set_pix(char r, char g, char b, char *img_data);
 void			*xmalloc(size_t size);
 int			gere_expose(t_args_events *args);
 int			key_hook(int keycode, t_args_events *args);
-void			do_refresh(t_args_events *args);
+int			do_refresh(t_args_events *args);
 
 /***			DIR:	vm_apply	        */
 /*			FILE:	count_champs.c		*/
@@ -129,5 +129,7 @@ int			get_arg_nbr(char c, char **argv, int wait_until);
 void			rempl_tabl(int *tab, char c, char **argv);
 t_champ			*gen_champs(t_champ *start, int *tab, char **argv);
 void			launch_game(t_arena *arena);
+void			refresh(t_args_events *args);
+void			do_carre(t_args_events *args, int taille, t_pos *pos, t_col *color);
 
 #endif

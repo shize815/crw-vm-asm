@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Sun Mar 25 16:13:38 2012 guillaume boell
+** Last update Sun Mar 25 16:39:28 2012 guillaume boell
 */
 #include <math.h>
 #include "corewar.h"
@@ -28,23 +28,23 @@ int	get_pc_col(t_champ *champs, t_col *col, int i, t_col c)
 {
   c.r = c.g = c.b = 0;
   if (i == champs->pc)
-    c.r = 255;
+    c.r = 127;
   if ((champs = champs->next) != NULL)
     {
       if (champs && i == champs->pc)
-	c.b = 255;
+	c.b = 127;
       if ((champs = champs->next) != NULL)
 	{
 	  if (champs && i == champs->pc)
-	    c.g = 255;
+	    c.g = 127;
 	  if ((champs = champs->next) != NULL)
 	    {
 	      if (champs && i == champs->pc)
-		c.g = c.b = 255;
+		c.g = c.b = 127;
 	    }
 	}
     }
-  if (c.r == c.g == c.b == 0)
+  if ((((c.r == c.g) == c.b) == 0))
     return (0);
   col->r = c.r;
   col->g = c.g;
@@ -52,7 +52,7 @@ int	get_pc_col(t_champ *champs, t_col *col, int i, t_col c)
   return (1);
 }
 
-void	get_color(t_col *col, int i, char val, t_arena *arena)
+void	get_color(t_col *col, int i, t_arena *arena)
 {
   t_col	temp;
 
@@ -78,7 +78,7 @@ void	refresh(t_args_events *args)
     {
       pos.x = (n * taille) % (LARG - taille);
       pos.y = ((i * taille) / (LARG - taille)) * taille;
-      get_color(&color, i, args->arena->map[i], args->arena);
+      get_color(&color, i, args->arena);
       do_carre(args, taille, &pos, &color);
       i++;
       n++;
