@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Sun Mar 25 18:23:47 2012 clovis kyndt
+** Last update Sun Mar 25 18:55:01 2012 clovis kyndt
 */
 
 #ifndef			__COREWAR_H__
@@ -121,7 +121,7 @@ void			kill_champ(t_arena *arena);
 void			print_my_arg(char *map, int *i, int arg[], char nb, char type[]);
 
 /*                      FILE:	print_special.c		*/
-int			print_my_char(char *map, int *i, int s);
+int			print_my_char(char *map, int *i);
 int			print_my_short(char *map, int *i, int s);
 int			print_my_int(char *map, int *i, int s);
 void			print_my_arg_spec(char *map, int *i, int arg[], int s);
