@@ -1,11 +1,11 @@
-;/*
+/*
 ** print_special.c for print_special in /home/kyndt/crw-vm-asm/vm/vm_apply
 ** 
 ** Made by clovis kyndt
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:58:18 2012 clovis kyndt
-** Last update Sun Mar 25 18:17:55 2012 clovis kyndt
+** Last update Sun Mar 25 17:30:50 2012 pierre ecormier
 */
 
 #include        "op.h"
