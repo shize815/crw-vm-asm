@@ -5,7 +5,7 @@
 ## Login   <ecormi_p@epitech.net>
 ## 
 ## Started on  Sun Mar 25 18:46:25 2012 pierre ecormier
-## Last update Sun Mar 25 22:03:05 2012 pierre ecormier
+## Last update Sun Mar 25 22:30:18 2012 pierre ecormier
 ##
 
 NAME=	corewar
@@ -41,6 +41,7 @@ VMSRC=	$(VMDIR)/live.c		\
 	$(VMDIR)/aff.c
 
 SRC=	main.c			\
+	dump_mem.c		\
 	vm_init.c		\
 	setpix.c		\
 	graphic.c		\

@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Sun Mar 25 23:25:37 2012 clovis kyndt
+** Last update Sun Mar 25 22:29:38 2012 pierre ecormier
 */
 
 #include        "op.h"
@@ -91,7 +91,7 @@ void            home_vm(t_arena *arena, t_args_events *args)
 	  cycle++;
 	  arena->cycle_tmp++;
 	  if (arena->cycle_tmp == arena->cycle_max)
-	    ;/* ta focntion */
+	    dump_mem(arena->map);
         }
       if (arena->nb_live >= NBR_LIVE)
         arena->cycle_to_die -= CYCLE_DELTA;

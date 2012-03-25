@@ -5,15 +5,13 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Sun Mar 25 23:25:07 2012 clovis kyndt
+** Last update Sun Mar 25 22:28:30 2012 pierre ecormier
 */
 
 #ifndef			__COREWAR_H__
 #define			__COREWAR_H__
 
 #include		<stdlib.h>
-#include		<stdio.h>  /* A SUPP !!!!*/
-#include		<string.h> /* A SUPP !!!!*/
 
 #define			LIVE	1
 #define			LD	2
@@ -95,6 +93,8 @@ void			*xmalloc(size_t size);
 int			gere_expose(t_args_events *args);
 int			key_hook(int keycode, t_args_events *args);
 int			do_refresh(t_args_events *args);
+
+void			dump_mem(char *mem);
 
 /***			DIR:	vm_apply	        */
 /*			FILE:	count_champs.c		*/
