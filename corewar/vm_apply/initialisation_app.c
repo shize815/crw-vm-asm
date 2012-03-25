@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:45:58 2012 clovis kyndt
-** Last update Sun Mar 25 22:05:20 2012 pierre ecormier
+** Last update Sun Mar 25 23:24:47 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -54,8 +54,11 @@ int             decript_type(char c)
 }
 
 void            init_fct_tab(void  (*act_fct[])(t_arena *arena,
-						t_champ *champ, char type[4], int argv[4]))
+						t_champ *champ, char type[4], int argv[4]),
+			     int *cycle_m, t_arena *arena)
 {
+  cycle_m[0] = arena->cycle_to_die;
+  arena->cycle_tmp = 0;
   act_fct[0] = live;
   act_fct[1] = ld;
   act_fct[2] = st;
