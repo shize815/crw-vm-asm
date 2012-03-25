@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Sun Mar 25 19:53:40 2012 clovis kyndt
+** Last update Sun Mar 25 20:42:53 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -15,7 +15,7 @@
 int             dedi_no_tab(t_champ *tmp, t_arena *arena,
 			    int *i, char index,
 			    void (*act_fct[16])(t_arena *arena, t_champ *champ,
-						char type[4], int argv[4]), unsigned char act)
+						char type[4], int argv[4]))
 {
   int           arg[4];
   char          type[4];
@@ -27,16 +27,16 @@ int             dedi_no_tab(t_champ *tmp, t_arena *arena,
     {
       nb = (arena->map)[VM_BORD(ptr_i)];
       nb = select_oct(type, nb);
-      type_exp(act, type);
+      type_exp(arena->act, type);
       ptr_i++;
       print_my_arg(arena->map, &ptr_i, arg, nb, type);
     }
   else if (!(index))
-    print_my_arg_spec_eval(arena->map, &ptr_i, arg, act);
+    print_my_arg_spec_eval(arena->map, &ptr_i, arg, arena->act);
   nb = (arena->map)[*i] - 1;
   if (nb < 16 && nb >= 0)
     (act_fct[nb])(arena, tmp, type, arg);
-  if (act != ZJMP || tmp->carry == 0)
+  if (arena->act != ZJMP || tmp->carry == 0)
     tmp->pc = ptr_i;
   return (0);
 }
@@ -64,7 +64,8 @@ int             cycle_action(t_arena *arena,
       if ((champ->cycle + time_act) <= cycle && mem[i] >= 0 && mem[i] < 16)
         {
           type = decript_type(mem[i]);
-	  dedi_no_tab(champ, arena, &i, type, act_fct, mem[i]);
+	  arena->act = mem[i];
+	  dedi_no_tab(champ, arena, &i, type, act_fct);
           champ->cycle = cycle;
         }
       champ = champ->next;
