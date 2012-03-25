@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Sun Mar 25 18:09:59 2012 clovis kyndt
+** Last update Sun Mar 25 19:07:08 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -49,14 +49,18 @@ int             cycle_action(t_arena *arena,
   t_champ       *champ;
   char          *mem;
   char          type;
+  int		max;
   int           time_act;
 
   champ = arena->champs;
   mem = arena->map;
+  max = -1;
   while (champ != NULL)
     {
       i = champ->pc;
       time_act = time_action(mem[i]);
+      if (max == -1 || time_act < max)
+	max = time_act;
       if ((champ->cycle + time_act) <= cycle && mem[i] >= 0 && mem[i] < 16)
         {
           type = decript_type(mem[i]);
@@ -65,12 +69,13 @@ int             cycle_action(t_arena *arena,
         }
       champ = champ->next;
     }
-  return (0);
+  return (max);
 }
 
 void            home_vm(t_arena *arena, t_args_events *args)
 {
   int           cycle;
+  int		tmp;
   int           cycle_m;
   void          (*act_fct[16])(t_arena *arena,
 			       t_champ *champ, char type[4], int argv[4]);
@@ -82,9 +87,12 @@ void            home_vm(t_arena *arena, t_args_events *args)
       cycle = init_bc_vm(arena);
       while (cycle < arena->cycle_to_die && arena->nb_live < NBR_LIVE)
         {
-          cycle_action(arena, act_fct, cycle);
+          tmp = cycle_action(arena, act_fct, cycle);
 	  do_refresh(args);
-          cycle++;
+	  if (tmp != -1 && (tmp + cycle) < arena->cycle_to_die)
+	    cycle += tmp;
+	  else
+	    cycle++;
         }
       if (arena->nb_live >= NBR_LIVE)
         arena->cycle_to_die -= CYCLE_DELTA;
