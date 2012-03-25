@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Sun Mar 25 22:20:33 2012 clovis kyndt
+** Last update Sun Mar 25 23:25:37 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -80,8 +80,7 @@ void            home_vm(t_arena *arena, t_args_events *args)
   void          (*act_fct[16])(t_arena *arena,
 			       t_champ *champ, char type[4], int argv[4]);
 
-  init_fct_tab(act_fct);
-  cycle_m = arena->cycle_to_die;
+  init_fct_tab(act_fct, &cycle_m, arena);
   while (champ_count(arena->champs) > 1)
     {
       cycle = init_bc_vm(arena);
@@ -90,6 +89,9 @@ void            home_vm(t_arena *arena, t_args_events *args)
           tmp = cycle_action(arena, act_fct, cycle);
 	  do_refresh(args);
 	  cycle++;
+	  arena->cycle_tmp++;
+	  if (arena->cycle_tmp == arena->cycle_max)
+	    ;/* ta focntion */
         }
       if (arena->nb_live >= NBR_LIVE)
         arena->cycle_to_die -= CYCLE_DELTA;

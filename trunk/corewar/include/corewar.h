@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Sun Mar 25 20:49:03 2012 clovis kyndt
+** Last update Sun Mar 25 23:25:07 2012 clovis kyndt
 */
 
 #ifndef			__COREWAR_H__
@@ -57,6 +57,7 @@ typedef	struct		s_arena
   t_champ		*champs;
   int			cycle_to_die;
   int			cycle_max;
+  int			cycle_tmp;
   int			nb_live;
   int			nb_process;
   char			last_name[80];
@@ -110,7 +111,8 @@ void			home_vm(t_arena *arena, t_args_events *args);
 void			init_time_tab(int time_tab[]);
 int			time_action(char c);
 int			decript_type(char c);
-void			init_fct_tab(void  (*act_fct[])(t_arena *arena, t_champ *champ, char type[4], int argv[4]));
+void			init_fct_tab(void  (*act_fct[])(t_arena *arena, t_champ *champ, char type[4], int argv[4]),
+				     int *cycle_m, t_arena *arena);
 void			init_live(t_champ *champ);
 
 /*                      FILE:   init_vm.c    */
