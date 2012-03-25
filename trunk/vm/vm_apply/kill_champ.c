@@ -5,48 +5,12 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:43:00 2012 clovis kyndt
-** Last update Sun Mar 25 17:59:55 2012 clovis kyndt
+** Last update Sun Mar 25 18:52:42 2012 clovis kyndt
 */
 
 #include        "op.h"
 #include        "corewar.h"
 #include        "vm_funcs.h"
-/*
-static t_champ	*kill_first_elm(t_champ *champs)
-{
-  t_champ	*tmp;
-
-  tmp = champs;
-  if (tmp == NULL)
-    return (NULL);
-  if (tmp->next == NULL)
-    {
-      free(tmp);
-      return (NULL);
-    }
-  tmp = tmp->next;
-  free(champs);
-  return (tmp);
-}
-
-static t_champ	*kill_fils(t_champ *champs, int pid)
-{
-  t_champ	*tmp;
-  t_champ	*tmp2;
-  t_champ	*tmp_return;
-
-  tmp = champs;
-  while (tmp->next != NULL)
-    {
-      tmp2 = tmp->next;
-      if (tmp2->parent == pid)
-	kill_elm_list(tmp);
-      tmp = tmp->next;
-    }
-  if (champs != NULL && champs->parent == pid)
-    tmp_return = kill_first_elm(champs);
-  return (tmp_return);
-}*/
 
 static void	pnt_kill_my_champ(t_champ *tmp, int *pass)
 {
@@ -68,7 +32,7 @@ static t_champ	*kill_my_select_champ(t_champ *champs, int *pass)
     {
       tmp = tmp->next;
       pass[0] = 1;
-      printf("Kill champ name : %s ; live : %d\n", champs->name, tmp->last_live);
+      printf("Kill %s- live : %d\n", champs->name, tmp->last_live);
       free(champs);
       return (tmp);
     }
@@ -79,7 +43,7 @@ static t_champ	*kill_my_select_champ(t_champ *champs, int *pass)
       if (tmp->last_live == 0)
         {
 	  pnt_kill_my_champ(tmp2, pass);
-          printf("Kill champ name : %s ; live : %d\n", champs->name, tmp->last_live);
+          printf("Kill %s- live : %d\n", champs->name, tmp->last_live);
           return (champs);
         }
       tmp2 = tmp;
