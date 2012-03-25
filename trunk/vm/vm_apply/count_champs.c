@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:44:56 2012 clovis kyndt
-** Last update Sun Mar 25 18:06:38 2012 pierre ecormier
+** Last update Sun Mar 25 20:14:18 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -21,7 +21,8 @@ int             champ_count(t_champ *champ)
   tmp = champ;
   while (tmp != NULL)
     {
-      i++;
+      if (tmp->parent == -1)
+	i++;
       tmp = tmp->next;
     }
   my_printf("NB CHAMP live : %d\n", i);
