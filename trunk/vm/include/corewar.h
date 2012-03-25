@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Sat Mar 24 19:25:12 2012 pierre ecormier
+** Last update Sun Mar 25 11:53:50 2012 clovis kyndt
 */
 
 #ifndef			__COREWAR_H__
@@ -113,7 +113,6 @@ void			init_fct_tab(void  (*act_fct[])(t_arena *arena, t_champ *champ, char type
 void			init_live(t_champ *champ);
 
 /*			FILE:	kill_champ.c		*/
-t_champ			*kill_my_select_champ(t_champ *champs);
 void			kill_champ(t_arena *arena);
 
 /*			FILE:	print_commun.c		*/
