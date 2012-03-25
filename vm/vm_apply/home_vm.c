@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Sat Mar 24 17:24:39 2012 pierre ecormier
+** Last update Sun Mar 25 12:02:42 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -90,7 +90,7 @@ void            home_vm(t_arena *arena, t_args_events *args)
 
   init_fct_tab(act_fct);
   cycle_m = arena->cycle_to_die;
-  while (champ_count(arena->champs) > 0)
+  while (champ_count(arena->champs) > 1)
     {
       cycle = 0;
       arena->nb_live = 0;
@@ -103,6 +103,7 @@ void            home_vm(t_arena *arena, t_args_events *args)
         }
       if (arena->nb_live >= NBR_LIVE)
         arena->cycle_to_die -= CYCLE_DELTA;
+      champ_count(arena->champs);
       kill_champ(arena);
       puts("Boucle");
     }
