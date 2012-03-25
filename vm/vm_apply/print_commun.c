@@ -5,21 +5,18 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:59:06 2012 clovis kyndt
-** Last update Sat Mar 24 12:58:19 2012 clovis kyndt
+** Last update Sun Mar 25 17:20:50 2012 clovis kyndt
 */
 
 #include        "op.h"
 #include        "corewar.h"
 #include        "vm_funcs.h"
 
-void            print_my_arg(char *map, int *i, int arg[], char nb, char type[])
+void            print_my_arg(char *map, int *i, int arg[],
+			     char nb, char type[])
 {
   int           n;
   int           s;
-  int           is;
-  int		u;
-  short		y;
-  char		d;
 
   n = 0;
   while (nb > 0 && n < 4)
@@ -31,56 +28,12 @@ void            print_my_arg(char *map, int *i, int arg[], char nb, char type[])
         s = DIR_SIZE;
       else if (type[n] == 3 || type[n] == 4)
         s = IND_SIZE;
-      is = s;
       if (s == 1)
-	{
-	  while (s)
-	    {
-	      if (is == s)
-		d = (unsigned char)map[*i];
-	      else
-		{
-		  d = d << 8;
-		  d = (unsigned char)map[*i] | d;
-		}
-	      *i = (*i + 1) % MEM_SIZE;
-	      s--;
-	    }
-	  arg[n] = (int)d;
-	}
+	arg[n] = print_my_char(map, i, s);
       else if (s == 2)
-	{
-	  while (s)
-	    {
-	      if (is == s)
-		y = (unsigned char)map[*i];
-	      else
-		{
-		  y = y << 8;
-		  y = (unsigned char)map[*i] | y;
-		}
-	      *i = (*i + 1) % MEM_SIZE;
-	      s--;
-	    }
-	  arg[n] = (int)y;
-	}
+	arg[n] = print_my_short(map, i, s);
       else if (s == 4)
-        {
-          while (s)
-            {
-              if (is == s)
-                u = (unsigned char)map[*i];
-              else
-                {
-                  u = u << 8;
-                  u = (unsigned char)map[*i] | u;
-                }
-              *i = (*i + 1) % MEM_SIZE;
-              s--;
-            }
-          arg[n] = u;
-        }
-      /*      printf("\tn:%d val:%d \n", n, arg[n]);*/
+	arg[n] = print_my_int(map, i, s);
       n++;
       nb--;
     }
