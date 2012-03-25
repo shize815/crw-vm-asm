@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Sun Mar 25 12:35:42 2012 guillaume boell
+** Last update Sun Mar 25 12:58:00 2012 guillaume boell
 */
 #include <math.h>
 #include "corewar.h"
@@ -115,13 +115,6 @@ void	refresh(t_args_events *args)
 
 int	key_hook(int keycode, t_args_events *args)
 {
-  /* printf("%d\n", keycode); */
-  /* if (keycode == LEFT && args->hero_pos.x >= 10) */
-  /*   args->hero_pos.x = args->hero_pos.x - 10; */
-  /* else if (keycode == LEFT && args->hero_pos.x < 10) */
-  /*   args->hero_pos.x = LARG - args->hero_pos.x; */
-  /* if (keycode == RIGHT) */
-  /*   args->hero_pos.x = args->hero_pos.x + 10; */
   if (keycode == 65307)
     exit(0);
   return (0);
