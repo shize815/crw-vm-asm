@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Tue Mar 20 15:27:18 2012 guillaume boell
-** Last update Wed Mar 21 15:41:18 2012 guillaume boell
+** Last update Sun Mar 25 12:34:43 2012 guillaume boell
 */
 #include <stdlib.h>
 #include "minilibx/mlx.h"
@@ -22,7 +22,6 @@ void		launch_game(t_arena *arena)
   int		info;
   t_args_events	args;
 
-  img_data = args.hero_pos.x = args.hero_pos.y = 0;
   if ((id_aff = mlx_init()) != NULL)
     if ((img_ptr = mlx_new_image(id_aff, LARG, LARG)) != NULL)
       if ((img_data = mlx_get_data_addr(img_ptr, &bpp, &ppl, &info)) != NULL)

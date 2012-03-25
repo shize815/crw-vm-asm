@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Sun Mar 25 11:53:50 2012 clovis kyndt
+** Last update Sun Mar 25 12:52:32 2012 guillaume boell
 */
 
 #ifndef			__COREWAR_H__
@@ -80,8 +80,6 @@ typedef	struct		s_args_events
   void			*id_aff;
   void			*id_fenetre;
   void			*img_ptr;
-  t_pos			hero_pos;
-  t_col			hero_color;
   char			*img_data;
   t_arena		*arena;
 }			t_args_events;
