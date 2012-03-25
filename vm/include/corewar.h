@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Sun Mar 25 18:55:01 2012 clovis kyndt
+** Last update Sun Mar 25 20:49:03 2012 clovis kyndt
 */
 
 #ifndef			__COREWAR_H__
@@ -60,6 +60,8 @@ typedef	struct		s_arena
   int			nb_live;
   int			nb_process;
   char			last_name[80];
+  unsigned char		act;
+  int			index;
   char			*map;
 }			t_arena;
 
@@ -98,8 +100,8 @@ int			do_refresh(t_args_events *args);
 int			champ_count(t_champ *champ);
 
 /*                      FILE:	home_vm.c		*/
-int			dedi_no_tab(t_champ *champ, t_arena *arena, int *i, char index,
-				    void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]), unsigned char act);
+int			dedi_no_tab(t_champ *champ, t_arena *arena, int *i,
+				    void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]));
 int			cycle_action(t_arena *arena,
 				     void (*act_fct[16])(t_arena *arena, t_champ *champ, char type[4], int argv[4]), int cycle);
 void			home_vm(t_arena *arena, t_args_events *args);
