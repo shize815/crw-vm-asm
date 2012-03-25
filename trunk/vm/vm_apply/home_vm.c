@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Sun Mar 25 19:13:26 2012 clovis kyndt
+** Last update Sun Mar 25 19:24:27 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -22,10 +22,10 @@ int             dedi_no_tab(t_champ *tmp, t_arena *arena,
   int           nb;
   int           ptr_i;
 
-  ptr_i = (*i + 1) % MEM_SIZE;
+  ptr_i = VM_BORD(*i + 1);
   if (index > 0)
     {
-      nb = (arena->map)[ptr_i % MEM_SIZE];
+      nb = (arena->map)[VM_BORD(ptr_i)];
       nb = select_oct(type, nb);
       type_exp(act, type);
       ptr_i++;
@@ -100,5 +100,5 @@ void            home_vm(t_arena *arena, t_args_events *args)
       kill_champ(arena);
     }
   aff_rendu(arena);
-  puts("END");
+  my_putstr("<END>\n");
 }
