@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Sun Mar 25 12:02:42 2012 clovis kyndt
+** Last update Sun Mar 25 16:27:02 2012 guillaume boell
 */
 
 #include        "op.h"
@@ -98,7 +98,7 @@ void            home_vm(t_arena *arena, t_args_events *args)
       while (cycle < arena->cycle_to_die && arena->nb_live < NBR_LIVE)
         {
           cycle_action(arena, act_fct, cycle);
-	  /*          do_refresh(args);*/
+	  do_refresh(args);
           cycle++;
         }
       if (arena->nb_live >= NBR_LIVE)
