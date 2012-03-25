@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Sun Mar 25 20:42:53 2012 clovis kyndt
+** Last update Sun Mar 25 20:49:48 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -13,7 +13,7 @@
 #include        "vm_funcs.h"
 
 int             dedi_no_tab(t_champ *tmp, t_arena *arena,
-			    int *i, char index,
+			    int *i,
 			    void (*act_fct[16])(t_arena *arena, t_champ *champ,
 						char type[4], int argv[4]))
 {
@@ -23,7 +23,7 @@ int             dedi_no_tab(t_champ *tmp, t_arena *arena,
   int           ptr_i;
 
   ptr_i = VM_BORD(*i + 1);
-  if (index > 0)
+  if (arena->index > 0)
     {
       nb = (arena->map)[VM_BORD(ptr_i)];
       nb = select_oct(type, nb);
@@ -31,7 +31,7 @@ int             dedi_no_tab(t_champ *tmp, t_arena *arena,
       ptr_i++;
       print_my_arg(arena->map, &ptr_i, arg, nb, type);
     }
-  else if (!(index))
+  else if (!(arena->index))
     print_my_arg_spec_eval(arena->map, &ptr_i, arg, arena->act);
   nb = (arena->map)[*i] - 1;
   if (nb < 16 && nb >= 0)
@@ -48,7 +48,6 @@ int             cycle_action(t_arena *arena,
   int           i;
   t_champ       *champ;
   char          *mem;
-  char          type;
   int		max;
   int           time_act;
 
@@ -63,9 +62,9 @@ int             cycle_action(t_arena *arena,
 	max = time_act;
       if ((champ->cycle + time_act) <= cycle && mem[i] >= 0 && mem[i] < 16)
         {
-          type = decript_type(mem[i]);
+          arena->index = decript_type(mem[i]);
 	  arena->act = mem[i];
-	  dedi_no_tab(champ, arena, &i, type, act_fct);
+	  dedi_no_tab(champ, arena, &i, act_fct);
           champ->cycle = cycle;
         }
       champ = champ->next;
