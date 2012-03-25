@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Tue Feb 21 15:33:22 2012 pierre ecormier
-** Last update Sun Mar 25 18:24:08 2012 clovis kyndt
+** Last update Sun Mar 25 17:52:22 2012 pierre ecormier
 */
 
 #include	<stdio.h>
@@ -40,7 +40,7 @@ void		live(t_arena *arena, t_champ *champ, char type[4], int argv[4])
 {
   t_champ	*it;
 
-  printf("live (%d)\n", argv[0]);
+  my_printf("live (%d)\n", argv[0]);
   it = arena->champs;
   while (it && it->num != *argv)
     it = it->next;
