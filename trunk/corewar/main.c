@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 20 16:53:47 2012 guillaume boell
-** Last update Sun Mar 25 16:48:50 2012 guillaume boell
+** Last update Sun Mar 25 21:54:49 2012 pierre ecormier
 */
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -129,7 +129,6 @@ int		main(int argc, char **argv)
   while (start_champ && (start_champ = start_champ->next))
     arena.nb_process++;
   arena.map = map;
-  aff_mem(map);
   launch_game(&arena);
   return (0);
 }

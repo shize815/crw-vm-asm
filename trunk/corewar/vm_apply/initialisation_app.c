@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:45:58 2012 clovis kyndt
-** Last update Sun Mar 25 19:17:47 2012 clovis kyndt
+** Last update Sun Mar 25 21:57:42 2012 pierre ecormier
 */
 
 #include        "op.h"
@@ -81,7 +81,7 @@ void            init_live(t_champ *champ)
   tmp = champ;
   while (tmp != NULL)
     {
-      tmp->nb_live = 0;
+      tmp->last_live = 0;
       tmp->cycle = 0;
       tmp = tmp->next;
     }
