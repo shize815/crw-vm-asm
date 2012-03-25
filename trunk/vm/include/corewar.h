@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Sun Mar 25 18:19:25 2012 clovis kyndt
+** Last update Sun Mar 25 18:23:47 2012 clovis kyndt
 */
 
 #ifndef			__COREWAR_H__
@@ -139,6 +139,7 @@ int			kill_elm_list(t_champ *champs);
 void			aff_rendu(t_arena *arena);
 
 void			my_putbin(char c);
+void			my_putstr(char *str);
 int			get_arg_nbr(char c, char **argv, int wait_until);
 void			rempl_tabl(int *tab, char c, char **argv);
 t_champ			*gen_champs(t_champ *start, int *tab, char **argv);

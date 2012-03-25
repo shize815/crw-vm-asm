@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Tue Feb 21 15:33:22 2012 pierre ecormier
-** Last update Sun Mar 25 18:07:41 2012 clovis kyndt
+** Last update Sun Mar 25 18:24:08 2012 clovis kyndt
 */
 
 #include	<stdio.h>
@@ -18,6 +18,8 @@ void		my_cpy_last_l(char name[], char *s)
   int		n;
 
   i = 0;
+  if (s == NULL)
+    return;
   while (s[i + 1])
     i++;
   while (i >= 0 && s[i] != '/')
