@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Mon Feb 20 16:53:47 2012 guillaume boell
-** Last update Sun Mar 25 16:29:35 2012 guillaume boell
+** Last update Sun Mar 25 16:48:50 2012 guillaume boell
 */
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -115,6 +115,7 @@ int		main(int argc, char **argv)
   char		*map;
   t_arena	arena;
 
+  start_champ = NULL;
   cycles_max = get_arg_nbr('d', argv, 0);
   rempl_tabl(load_addr, 'a', argv);
   rempl_tabl(champ_id, 'n', argv);
