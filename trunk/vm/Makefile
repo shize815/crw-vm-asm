@@ -22,9 +22,12 @@ APSRC=	$(APDIR)/count_champs.c		\
 	$(APDIR)/home_vm.c		\
 	$(APDIR)/initialisation_app.c	\
 	$(APDIR)/kill_champ.c		\
+	$(APDIR)/slct_kill.c		\
 	$(APDIR)/print_commun.c		\
 	$(APDIR)/print_special.c	\
-	$(APDIR)/print_widget.c		\
+	$(APDIR)/init_vm.c		\
+	$(APDIR)/win_champ.c		\
+	$(APDIR)/print_widget.c
 
 VMDIR=	vm_funcs
 VMSRC=	$(VMDIR)/live.c		\

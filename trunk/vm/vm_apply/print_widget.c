@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 22:01:01 2012 clovis kyndt
-** Last update Sat Mar 24 12:50:04 2012 clovis kyndt
+** Last update Sun Mar 25 17:27:14 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -37,6 +37,22 @@ char            select_oct(char tb[], unsigned char c)
   return (arg);
 }
 
+void		type_exep(char c, char type[])
+{
+  if (c == STI)
+    {
+      if (type[1] != 1)
+	type[1] = 4;
+      if (type[2] != 1)
+	type[2] = 4;
+    }
+  else if (c == LDI || c == LLDI)
+    {
+      type[0] = 4;
+      type[1] = 4;
+    }
+}
+
 void             type_exp(char c, char type[])
 {
   if (c == LD || c == LLD)
@@ -53,16 +69,6 @@ void             type_exp(char c, char type[])
     }
   else if (c == AND || c == OR || c == XOR)
     type[2] = 1;
-  else if (c == STI)
-    {
-      if (type[1] != 1)
-        type[1] = 4;
-      if (type[2] != 1)
-        type[2] = 4;
-    }
-  else if (c == LDI || c == LLDI)
-    {
-        type[0] = 4;
-        type[1] = 4;
-    }
+  else
+    type_exep(c, type);
 }

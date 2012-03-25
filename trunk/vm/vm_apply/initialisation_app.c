@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:45:58 2012 clovis kyndt
-** Last update Sat Mar 24 16:47:03 2012 pierre ecormier
+** Last update Sun Mar 25 17:21:13 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -48,42 +48,6 @@ int             time_action(char c)
 
 int             decript_type(char c)
 {
-  /* DEBUG */
-  /*
-  if (c == LIVE)
-    printf("- LIVE ");
-  else if (c == LD)
-    printf("- LD ");
-  else if (c == ST)
-    printf("- ST ");
-  else if (c == ADD)
-    printf("- ADD ");
-  else if (c == SUB)
-    printf("- SUB ");
-  else if (c == AND)
-    printf("- AND ");
-  else if (c == OR)
-    printf("- OR ");
-  else if (c == XOR)
-    printf("- XOR ");
-  else if (c == ZJMP)
-    printf("- ZJMP ");
-  else if (c == LDI)
-    printf("- LDI ");
-  else if (c == STI)
-    printf("- STI ");
-  else if (c == FORK)
-    printf("- FORK ");
-  else if (c == LLD)
-    printf("- LLD ");
-  else if (c == LLDI)
-    printf("- LLDI ");
-  else if (c == LFORK)
-    printf("- LFORK ");
-  else if (c == AFF)
-    printf("- AFF ");
-  */
-  /* END */
   if (c == LIVE || c == ZJMP || c == FORK || c == LFORK)
     return (0);
   if (c > 0 && c <= 16)
@@ -91,7 +55,8 @@ int             decript_type(char c)
   return (-1);
 }
 
-void            init_fct_tab(void  (*act_fct[])(t_arena *arena, t_champ *champ, char type[4], int argv[4]))
+void            init_fct_tab(void  (*act_fct[])(t_arena *arena,
+						t_champ *champ, char type[4], int argv[4]))
 {
   act_fct[0] = live;
   act_fct[1] = ld;

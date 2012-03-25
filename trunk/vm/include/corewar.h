@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Sun Mar 25 16:41:26 2012 guillaume boell
+** Last update Sun Mar 25 18:19:25 2012 clovis kyndt
 */
 
 #ifndef			__COREWAR_H__
@@ -59,6 +59,7 @@ typedef	struct		s_arena
   int			cycle_max;
   int			nb_live;
   int			nb_process;
+  char			last_name[80];
   char			*map;
 }			t_arena;
 
@@ -110,6 +111,9 @@ int			decript_type(char c);
 void			init_fct_tab(void  (*act_fct[])(t_arena *arena, t_champ *champ, char type[4], int argv[4]));
 void			init_live(t_champ *champ);
 
+/*                      FILE:   init_vm.c    */
+int			init_bc_vm(t_arena *arena);
+
 /*			FILE:	kill_champ.c		*/
 void			kill_champ(t_arena *arena);
 
@@ -117,12 +121,22 @@ void			kill_champ(t_arena *arena);
 void			print_my_arg(char *map, int *i, int arg[], char nb, char type[]);
 
 /*                      FILE:	print_special.c		*/
+int			print_my_char(char *map, int *i, int s);
+int			print_my_short(char *map, int *i, int s);
+int			print_my_int(char *map, int *i, int s);
 void			print_my_arg_spec(char *map, int *i, int arg[], int s);
 void			print_my_arg_spec_eval(char *map, int *i, int arg[], char act);
 
 /*                      FILE:	print_commun.c          */
 char			select_oct(char tb[], unsigned char c);
+void			type_exep(char c, char type[]);
 void			type_exp(char c, char type[]);
+
+/*                      FILE:   slct_kill.c          */
+int			kill_elm_list(t_champ *champs);
+
+/*                      FILE:   win_champ.c          */
+void			aff_rendu(t_arena *arena);
 
 void			my_putbin(char c);
 int			get_arg_nbr(char c, char **argv, int wait_until);
