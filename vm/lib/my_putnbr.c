@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Sun Feb 12 18:49:03 2012 pierre ecormier
-** Last update Wed Mar 21 18:07:22 2012 clovis kyndt
+** Last update Sun Mar 25 20:10:02 2012 pierre ecormier
 */
 
 #include	<unistd.h>
@@ -39,6 +39,8 @@ void		my_putstr(char *s)
 {
   int		i;
 
+  if (s == NULL)
+    return;
   i = -1;
   while (s[++i]);
   if (write(1, s, i) == -1)
