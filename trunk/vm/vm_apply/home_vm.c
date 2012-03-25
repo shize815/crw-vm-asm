@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Sun Mar 25 19:24:27 2012 clovis kyndt
+** Last update Sun Mar 25 19:53:40 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -90,9 +90,8 @@ void            home_vm(t_arena *arena, t_args_events *args)
           tmp = cycle_action(arena, act_fct, cycle);
 	  do_refresh(args);
 	  if (tmp != -1 && tmp != 0)
-	    cycle += tmp;
-	  else
-	    cycle++;
+	    cycle += tmp - 1;
+	  cycle++;
         }
       if (arena->nb_live >= NBR_LIVE)
         arena->cycle_to_die -= CYCLE_DELTA;
@@ -100,5 +99,4 @@ void            home_vm(t_arena *arena, t_args_events *args)
       kill_champ(arena);
     }
   aff_rendu(arena);
-  my_putstr("<END>\n");
 }
