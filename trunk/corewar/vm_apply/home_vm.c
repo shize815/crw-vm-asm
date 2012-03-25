@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:27:16 2012 clovis kyndt
-** Last update Sun Mar 25 19:50:18 2012 pierre ecormier
+** Last update Sun Mar 25 22:20:33 2012 clovis kyndt
 */
 
 #include        "op.h"
@@ -89,8 +89,6 @@ void            home_vm(t_arena *arena, t_args_events *args)
         {
           tmp = cycle_action(arena, act_fct, cycle);
 	  do_refresh(args);
-	  if (tmp != -1 && tmp != 0)
-	    cycle += tmp - 1;
 	  cycle++;
         }
       if (arena->nb_live >= NBR_LIVE)
