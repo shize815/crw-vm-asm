@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:45:58 2012 clovis kyndt
-** Last update Sun Mar 25 17:21:13 2012 clovis kyndt
+** Last update Sun Mar 25 18:06:58 2012 pierre ecormier
 */
 
 #include        "op.h"
@@ -42,7 +42,7 @@ int             time_action(char c)
   if (c >= 0 && c < 16)
     return (time_tab[i]);
   else
-    printf("- RIEN");
+    my_printf("- RIEN");
   return (0);
 }
 

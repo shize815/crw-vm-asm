@@ -15,6 +15,7 @@ MY=	lib/get_next_line.c	\
 	lib/my_strcmp.c		\
 	lib/my_putnbr.c		\
 	lib/my_strdup.c		\
+	lib/my_printf.c		\
 	lib/my_str_to_wordtab.c
 
 APDIR=	vm_apply

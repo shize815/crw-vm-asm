@@ -5,11 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:58:18 2012 clovis kyndt
-<<<<<<< .mine
-** Last update Sun Mar 25 18:55:56 2012 clovis kyndt
-=======
-** Last update Sun Mar 25 17:30:50 2012 pierre ecormier
->>>>>>> .r93
+** Last update Sun Mar 25 18:25:46 2012 pierre ecormier
 */
 
 #include        "op.h"
