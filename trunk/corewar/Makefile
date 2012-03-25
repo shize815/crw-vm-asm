@@ -5,7 +5,7 @@
 ## Login   <ecormi_p@epitech.net>
 ## 
 ## Started on  Sun Mar 25 18:46:25 2012 pierre ecormier
-## Last update Sun Mar 25 18:46:30 2012 pierre ecormier
+## Last update Sun Mar 25 22:03:05 2012 pierre ecormier
 ##
 
 NAME=	corewar
@@ -53,8 +53,6 @@ SRC=	main.c			\
 OBJ=	$(SRC:.c=.o)
 
 CFLAGS=	-I include/								\
-	-W -Wall -Wextra							\
-	-ansi -pedantic								\
 	-g
 
 LIB=	-L./minilibx/ -lmlx_x86_64-linux -L/usr/lib/X11 -lXext -lX11 -lm

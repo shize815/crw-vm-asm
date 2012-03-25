@@ -5,7 +5,7 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:45:58 2012 clovis kyndt
-** Last update Sun Mar 25 21:57:42 2012 pierre ecormier
+** Last update Sun Mar 25 22:05:20 2012 pierre ecormier
 */
 
 #include        "op.h"
@@ -67,7 +67,7 @@ void            init_fct_tab(void  (*act_fct[])(t_arena *arena,
   act_fct[8] = zjmp;
   act_fct[9] = ldi;
   act_fct[10] = sti;
-  act_fct[11] = fork;
+  act_fct[11] = my_fork;
   act_fct[12] = lld;
   act_fct[13] = lldi;
   act_fct[14] = lfork;
