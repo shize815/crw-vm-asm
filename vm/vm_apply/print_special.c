@@ -5,31 +5,23 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:58:18 2012 clovis kyndt
+<<<<<<< .mine
+** Last update Sun Mar 25 18:51:47 2012 clovis kyndt
+=======
 ** Last update Sun Mar 25 17:30:50 2012 pierre ecormier
+>>>>>>> .r93
 */
 
 #include        "op.h"
 #include        "corewar.h"
 #include        "vm_funcs.h"
 
-int		print_my_char(char *map, int *i, int s)
+int		print_my_char(char *map, int *i)
 {
-  char          d;
-  int		is;
+  unsigned char d;
 
-  is = s;
-  while (s)
-    {
-      if (is == s)
-	d = (unsigned char)map[*i];
-      else
-	{
-	  d = d << 8;
-	  d = (unsigned char)map[*i] | d;
-	}
-      *i = (*i + 1) % MEM_SIZE;
-      s--;
-    }
+  d = (unsigned char)map[*i];
+  *i = (*i + 1) % MEM_SIZE;
   return ((int)d);
 }
 
@@ -58,12 +50,6 @@ int             print_my_int(char *map, int *i, int s)
 {
   int		d;
   int           is;
-
-  is = s;
-  while (s)
-    {
-      if (is == s)
-        d = (unsigned char)map[*i];
       else
         {
           d = d << 8;
@@ -72,13 +58,13 @@ int             print_my_int(char *map, int *i, int s)
       *i = (*i + 1) % MEM_SIZE;
       s--;
     }
-  return (d);
+  return ((int)d);
 }
 
 void            print_my_arg_spec(char *map, int *i, int arg[], int s)
 {
   if (s == 1)
-    arg[0] = print_my_char(map, i, s);
+    arg[0] = print_my_char(map, i);
   else if (s == 2)
     arg[0] = print_my_short(map, i, s);
   else if (s == 4)
