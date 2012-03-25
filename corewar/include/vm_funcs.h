@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Tue Feb 21 15:31:47 2012 pierre ecormier
-** Last update Sun Mar 25 18:22:47 2012 pierre ecormier
+** Last update Sun Mar 25 22:03:31 2012 pierre ecormier
 */
 
 #ifndef	__VM_FUNCS_H__
@@ -28,7 +28,7 @@ void		xor(t_arena *arena, t_champ *champ, char type[4], int argv[4]);
 void		zjmp(t_arena *arena, t_champ *champ, char type[4], int argv[4]);
 void		ldi(t_arena *arena, t_champ *champ, char type[4], int argv[4]);
 void		sti(t_arena *arena, t_champ *champ, char type[4], int argv[4]);
-void		fork(t_arena *arena, t_champ *champ, char type[4], int argv[4]);
+void		my_fork(t_arena *arena, t_champ *champ, char type[4], int argv[4]);
 void		lld(t_arena *arena, t_champ *champ, char type[4], int argv[4]);
 void		lldi(t_arena *arena, t_champ *champ, char type[4], int argv[4]);
 void		lfork(t_arena *arena, t_champ *champ, char type[4], int argv[4]);
