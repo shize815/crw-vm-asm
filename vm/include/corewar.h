@@ -5,7 +5,7 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Mon Feb 13 16:32:13 2012 pierre ecormier
-** Last update Sun Mar 25 12:52:32 2012 guillaume boell
+** Last update Sun Mar 25 16:24:33 2012 guillaume boell
 */
 
 #ifndef			__COREWAR_H__
@@ -123,5 +123,11 @@ void			print_my_arg_spec_eval(char *map, int *i, int arg[], char act);
 /*                      FILE:	print_commun.c          */
 char			select_oct(char tb[], unsigned char c);
 void			type_exp(char c, char type[]);
+
+void			my_putbin(char c);
+int			get_arg_nbr(char c, char **argv, int wait_until);
+void			rempl_tabl(int *tab, char c, char **argv);
+t_champ			*gen_champs(t_champ *start, int *tab, char **argv);
+void			launch_game(t_arena *arena);
 
 #endif
