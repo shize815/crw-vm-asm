@@ -5,13 +5,29 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Tue Feb 21 15:33:22 2012 pierre ecormier
-** Last update Sun Mar 25 18:30:57 2012 pierre ecormier
+** Last update Sun Mar 25 21:50:59 2012 pierre ecormier
 */
 
 #include	<stdio.h>
 #include	"op.h"
 #include	"corewar.h"
 #include	"vm_funcs.h"
+
+static void	print_int(char *mem, int nb)
+{
+  mem[0] = (nb >> 24) & 0xFF;
+  mem[1] = (nb >> 16) & 0xFF;
+  mem[2] = (nb >> 8) & 0xFF;
+  mem[3] = (nb >> 0) & 0xFF;
+}
+
+static void	read_int(char *mem, int *nb)
+{
+  *nb = (unsigned char) mem[0] << 24;
+  *nb |= (unsigned char) mem[1] << 16;
+  *nb |= (unsigned char) mem[2] << 8;
+  *nb |= (unsigned char) mem[3];
+}
 
 void		st(t_arena *arena, t_champ *champ, char type[4], int argv[4])
 {
@@ -30,7 +46,7 @@ void		st(t_arena *arena, t_champ *champ, char type[4], int argv[4])
     {
       offset = VM_BORD(champ->pc + (argv[1] % IDX_MOD));
       addr = (unsigned int *) &(arena->map[offset]);
-      *addr = champ->r[argv[0]];
+      print_int((char *) addr, champ->r[argv[0]]);
       my_printf("i@pc+(d=%d)\n", argv[1]);
     }
 }
@@ -46,7 +62,7 @@ void		ld(t_arena *arena, t_champ *champ, char type[4], int argv[4])
     {
       offset = VM_BORD(champ->pc + (*argv % IDX_MOD));
       addr = (unsigned int *) &(arena->map[offset]);
-      champ->r[argv[1]] = *addr;
+      read_int((char *) addr, &(champ->r[argv[1]]));
       my_printf("ld (i@pc+(d=%d)=%d -> r%d) ", argv[0], *addr, argv[1]);
     }
   else
@@ -67,7 +83,7 @@ void		lld(t_arena *arena, t_champ *champ, char type[4], int argv[4])
   if (type[0] == T_IND)
     {
       addr = (unsigned int *) &(arena->map[VM_BORD(champ->pc + *argv)]);
-      champ->r[argv[1]] = *addr;
+      read_int((char *) addr, &(champ->r[argv[1]]));
       my_printf("lld (i@pc+(d=%d)=%d -> r%d) ", argv[0], *addr, argv[1]);
     }
   else
