@@ -5,11 +5,11 @@
 ## Login   <ecormi_p@epitech.net>
 ## 
 ## Started on  Mon Oct 24 16:56:40 2011 pierre ecormier
-## Last update Sun Mar 25 21:14:05 2012 pierre ecormier
+## Last update Sun Mar 25 21:18:46 2012 pierre ecormier
 ##
 
 ASMDIR=	asm
-VMDIR=	vm
+VMDIR=	corewar
 
 all: asm corewar
 
