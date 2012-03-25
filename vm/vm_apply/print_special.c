@@ -5,7 +5,11 @@
 ** Login   <kyndt_c@epitech.net>
 ** 
 ** Started on  Thu Mar 22 21:58:18 2012 clovis kyndt
-** Last update Sun Mar 25 18:25:46 2012 pierre ecormier
+<<<<<<< .mine
+** Last update Sun Mar 25 19:25:40 2012 clovis kyndt
+=======
+** Last update Sun Mar 25 17:30:50 2012 pierre ecormier
+>>>>>>> .r93
 */
 
 #include        "op.h"
@@ -17,7 +21,7 @@ int		print_my_char(char *map, int *i)
   unsigned char d;
 
   d = (unsigned char)map[*i];
-  *i = (*i + 1) % MEM_SIZE;
+  *i = VM_BORD(*i + 1);
   return ((int)d);
 }
 
@@ -36,7 +40,7 @@ int             print_my_short(char *map, int *i, int s)
           d = d << 8;
           d = (unsigned char)map[*i] | d;
         }
-      *i = (*i + 1) % MEM_SIZE;
+      *i = VM_BORD(*i + 1);
       s--;
     }
   return ((int)d);
@@ -57,7 +61,7 @@ int             print_my_int(char *map, int *i, int s)
           d = d << 8;
           d = (unsigned char)map[*i] | d;
         }
-      *i = (*i + 1) % MEM_SIZE;
+      *i = VM_BORD(*i + 1);
       s--;
     }
   return ((int)d);
