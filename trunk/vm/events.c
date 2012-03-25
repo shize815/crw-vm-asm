@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Sun Mar 25 16:39:28 2012 guillaume boell
+** Last update Sun Mar 25 16:49:06 2012 guillaume boell
 */
 #include <math.h>
 #include "corewar.h"
@@ -89,6 +89,7 @@ void	refresh(t_args_events *args)
 
 int	key_hook(int keycode, t_args_events *args)
 {
+  args = args;
   if (keycode == 65307)
     exit(0);
   return (0);
