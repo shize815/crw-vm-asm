@@ -5,10 +5,11 @@
 ** Login   <ecormi_p@epitech.net>
 ** 
 ** Started on  Thu Mar 15 14:00:07 2012 pierre ecormier
-** Last update Sun Mar 25 17:40:48 2012 pierre ecormier
+** Last update Sun Mar 25 18:40:34 2012 pierre ecormier
 */
 
 #include	<stdarg.h>
+#include	"my.h"
 
 void		my_printf(char *s, ...)
 {
