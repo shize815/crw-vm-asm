@@ -36,6 +36,7 @@ VMSRC=	$(VMDIR)/live.c		\
 	$(VMDIR)/aff.c
 
 SRC=	main.c			\
+	vm_init.c		\
 	setpix.c		\
 	graphic.c		\
 	events.c		\

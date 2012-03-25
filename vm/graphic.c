@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Tue Mar 20 15:27:18 2012 guillaume boell
-** Last update Sun Mar 25 12:57:18 2012 guillaume boell
+** Last update Sun Mar 25 16:15:36 2012 guillaume boell
 */
 #include <stdlib.h>
 #include "minilibx/mlx.h"
@@ -38,4 +38,30 @@ void		launch_game(t_arena *arena)
 	    mlx_loop_hook(id_aff, do_refresh, &args);
 	    mlx_loop(id_aff);
 	  }
+}
+
+void	do_refresh(t_args_events *args)
+{
+  refresh(args);
+  mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
+}
+
+void	do_carre(t_args_events *args, int taille, t_pos *pos, t_col *color)
+{
+  char	*i;
+  int	c_x;
+  int	c_y;
+
+  i = args->img_data + ((pos->x + (pos->y * LARG)) * 4);
+  c_x = c_y = 0;
+  while (c_y < taille)
+    {
+      while (c_x < taille)
+	{
+	  set_pix(color->r, color->g, color->b, i + ((c_x + (c_y * LARG)) * 4));
+	  c_x++;
+	}
+      c_x = 0;
+      c_y++;
+    }
 }

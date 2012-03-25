@@ -5,7 +5,7 @@
 ** Login   <boell_g@epitech.net>
 ** 
 ** Started on  Fri Jan 13 11:00:18 2012 guillaume boell
-** Last update Sun Mar 25 12:58:00 2012 guillaume boell
+** Last update Sun Mar 25 16:13:38 2012 guillaume boell
 */
 #include <math.h>
 #include "corewar.h"
@@ -22,32 +22,6 @@ int	gere_expose(t_args_events *args)
   didonce = 1;
   mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
   return (0);
-}
-
-void	do_refresh(t_args_events *args)
-{
-  refresh(args);
-  mlx_put_image_to_window(args->id_aff, args->id_fenetre, args->img_ptr, 0, 0);
-}
-
-void	do_carre(t_args_events *args, int taille, t_pos *pos, t_col *color)
-{
-  char	*i;
-  int	c_x;
-  int	c_y;
-
-  i = args->img_data + ((pos->x + (pos->y * LARG)) * 4);
-  c_x = c_y = 0;
-  while (c_y < taille)
-    {
-      while (c_x < taille)
-	{
-	  set_pix(color->r, color->g, color->b, i + ((c_x + (c_y * LARG)) * 4));
-	  c_x++;
-	}
-      c_x = 0;
-      c_y++;
-    }
 }
 
 int	get_pc_col(t_champ *champs, t_col *col, int i, t_col c)
